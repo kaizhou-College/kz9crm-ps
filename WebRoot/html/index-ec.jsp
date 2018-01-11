@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@include file="com/com.jsp" %>
 
-=======
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
->>>>>>> 9464b7ef501b3855070f1fafb10b33f10fcc1e05
 <HTML>
 <HEAD>
 <TITLE>客户关系管理系统</TITLE>
@@ -173,11 +169,8 @@ function MIMouseOver(imgName, theURL) {
 	var s = '';
 	if (imgName == 'plusMinusIcon') {
 		newImg = this.PMIconName();
-<<<<<<< HEAD
-		s = '点击' + ((this.isopen == true) ? '��.' : '打开.');
-=======
+
 		s = '点击' + ((this.isopen == true) ? '關閉.' : '打开.');
->>>>>>> 9464b7ef501b3855070f1fafb10b33f10fcc1e05
 	} else {
 		if (imgName == 'docIcon') {
 			newImg = this.docIconName();
@@ -793,13 +786,9 @@ function defOnError(msg, url, lno) {
 // Declare global variables
 var theBrowser = new browserInfo;
 
-<<<<<<< HEAD
-var jsErrorMsg = '�面发生脚本错误';
-jsErrorMsg += '�通知管理�.';
-=======
+
 var jsErrorMsg = '頁面发生脚本错误';
 jsErrorMsg += '請通知管理員.';
->>>>>>> 9464b7ef501b3855070f1fafb10b33f10fcc1e05
 if (theBrowser.canOnError) {self.onerror = defOnError;}
 
 var theMenu = new Menu;
@@ -910,7 +899,6 @@ function initialise() {
 	l2ID = theMenu.addEntry(-1, "Folder", "客户关系管理系统", "mywork.htm", "客户关系管理系统");
 	
 	L01 = theMenu.addChild(l2ID, "Folder", "营销管理", "", "营销管理...");
-<<<<<<< HEAD
 	L0101 = theMenu.addChild(L01, "Document", "销售机会管理", "~sale/list.html", "销售机会管理...");
 	L0102 = theMenu.addChild(L01, "Document", "客户开发计划", "plan_byPage", "客户开发计划...");
 
@@ -918,15 +906,6 @@ function initialise() {
 	L02 = theMenu.addChild(l2ID, "Folder", "客户管理", "", "客户管理...");
 	L0201 = theMenu.addChild(L02, "Document", "客户信息管理", "customer_customerList", "客户信息管理...");
 	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "~cust/lost/list.html", "客户流失管理...");	
-=======
-	L0101 = theMenu.addChild(L01, "Document", "销售机会管理", "salchance_query", "销售机会管理...");
-	L0102 = theMenu.addChild(L01, "Document", "客户开发计划", "~sale/dev.html", "客户开发计划...");
-
-	
-	L02 = theMenu.addChild(l2ID, "Folder", "客户管理", "", "客户管理...");
-	L0201 = theMenu.addChild(L02, "Document", "客户信息管理", "~cust/cust/list.html", "客户信息管理...");
-	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "cstlost_fenyequery", "客户流失管理...");	
->>>>>>> 9464b7ef501b3855070f1fafb10b33f10fcc1e05
 
 	L03 = theMenu.addChild(l2ID, "Folder", "服务管理", "", "客户服务管理...");
 	L0301 = theMenu.addChild(L03, "Document", "服务创建", "~cust/service/add.html", "服务创建...");

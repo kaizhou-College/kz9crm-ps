@@ -31,7 +31,14 @@
 		<td><input /></td>
 		<th>地区</th>
 		<td>
-		<s:select list="{listRegion}"  headerKey="全部" headerValue="全部"></s:select>
+			<select>
+				<option>全部</option>
+				<option>湖北</option>
+				<option>河北</option>
+				<option>江南</option>
+				<option>湖南</option>
+				<option>新疆</option>
+			</select>
 		</td>
 	</tr>
 	<tr>
