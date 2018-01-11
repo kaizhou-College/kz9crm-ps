@@ -909,10 +909,10 @@ function initialise() {
 
 	L03 = theMenu.addChild(l2ID, "Folder", "服务管理", "", "客户服务管理...");
 	L0301 = theMenu.addChild(L03, "Document", "服务创建", "service_serviceAddTo", "服务创建...");
-	L0302 = theMenu.addChild(L03, "Document", "服务分配", "~cust/service/dispatch.html", "服务分配...");
-	L0303 = theMenu.addChild(L03, "Document", "服务处理", "~cust/service/deal.html", "服务处理...");
-	L0304 = theMenu.addChild(L03, "Document", "服务反馈", "~cust/service/feedback.html", "服务反馈...");
-	L0305 = theMenu.addChild(L03, "Document", "服务归档", "~cust/service/arch.html", "服务归档...");
+	L0302 = theMenu.addChild(L03, "Document", "服务分配", "service_serviceByPage", "服务分配...");
+	L0303 = theMenu.addChild(L03, "Document", "服务处理", "service_serviceDisposeByPage", "服务处理...");
+	L0304 = theMenu.addChild(L03, "Document", "服务反馈", "service_serviceFeedbackByPage", "服务反馈...");
+	L0305 = theMenu.addChild(L03, "Document", "服务归档", "service_serviceArchByPage", "服务归档...");
 	
 	
 	L04 = theMenu.addChild(l2ID, "Folder", "统计报表", "", "统计报表...");

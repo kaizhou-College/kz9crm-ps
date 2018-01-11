@@ -94,6 +94,46 @@
 			<result name="serviceAddTo" >
 			   	/html/~cust/service/add.jsp
 			</result>
+			<result name="serviceAdd" type="chain">
+				service_serviceByPage
+			</result>
+			<result name="serviceByPage">
+				/html/~cust/service/dispatch.jsp
+			</result>
+			<result name="serviceDueToAjax" type="chain">
+				service_serviceByPage
+			</result>
+			<result name="serviceDisposeByPage">
+				/html/~cust/service/deal.jsp
+			</result>
+			<result name="serviceDispatchDelete" type="chain">
+				service_serviceByPage
+			</result>
+			<result name="serviceDetailList" >
+				/html/~cust/service/deal_detail.jsp
+			</result>
+			<result name="serviceDetailUpdate" type="chain" >
+				service_serviceDisposeByPage
+			</result>
+			
+			<!-- feedbdack -->
+			<result name="serviceFeedbackByPage" >
+				/html/~cust/service/feedback.jsp
+			</result>
+			<result name="serviceFeedbacklList" >
+				/html/~cust/service/feedback_detail.jsp
+			</result>
+			<result name="serviceFeedbacklUpdate" type="chain">
+				service_serviceFeedbackByPage
+			</result>
+			
+			<!-- arch -->
+			<result name="serviceArchByPage">
+				/html/~cust/service/arch.jsp
+			</result>
+			<result name="serviceArchlList">
+				/html/~cust/service/detail.jsp
+			</result>
 		</action>
 		
 		

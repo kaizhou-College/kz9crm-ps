@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.kz.crm.entity.ByPage;
+import com.kz.crm.entity.PageParam;
 import com.kz.crm.entity.CstCustomer;
 import com.kz.crm.service.CustomerBiz;
 
@@ -19,7 +19,7 @@ public class CstCustomerAction {
 	private CustomerBiz coustomerBiz;
 	
 	//分页 上下跳  时会使用的数据
-	private   ByPage byPage;
+	private   PageParam byPage;
 	//分页的初始数据   当前页面与每也显示的条数
 	private static final int PAGE_CUSTOMER_INDEX=1;
 	private static final int PAGE_CUSTOMER_SIZE=3;
@@ -59,7 +59,7 @@ public class CstCustomerAction {
 		System.out.println("贱人了哈哈哈--");
 		//如果byPage没有初始化就给它设置一个当前页面
 		if(byPage==null){
-			byPage=new ByPage();
+			byPage=new PageParam();
 			byPage.setPageIndex(1);
 		}
 		//设置每页显示的数据
@@ -79,11 +79,11 @@ public class CstCustomerAction {
 	}
 
 
-	public ByPage getByPage() {
+	public PageParam getByPage() {
 		return byPage;
 	}
 
-	public void setByPage(ByPage byPage) {
+	public void setByPage(PageParam byPage) {
 		this.byPage = byPage;
 	}
 
