@@ -10,17 +10,16 @@ public class CstLost implements java.io.Serializable {
 
 	// Fields
 
-	private Integer lstId;
-	 private String lstCustNo;
+	private Long lstId;
+	private String lstCustNo;
 	private String lstCustName;
-	private Integer lstCustManagerId;
+	private Long lstCustManagerId;
 	private String lstCustManagerName;
 	private Date lstLastOrderDate;
 	private Date lstLostDate;
 	private String lstDelay;
 	private String lstReason;
-	private Integer lstStatus;
-	private CstCustomer cstcustomer;
+	private Long lstStatus;
 
 	// Constructors
 
@@ -29,10 +28,10 @@ public class CstLost implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public CstLost(Integer lstId, String lstCustNo, Integer lstCustManagerId,
-			String lstCustManagerName, String lstDelay, Integer lstStatus) {
+	public CstLost(Long lstId, String lstCustNo, Long lstCustManagerId,
+			String lstCustManagerName, String lstDelay, Long lstStatus) {
 		this.lstId = lstId;
-		 this.lstCustNo = lstCustNo;
+		this.lstCustNo = lstCustNo;
 		this.lstCustManagerId = lstCustManagerId;
 		this.lstCustManagerName = lstCustManagerName;
 		this.lstDelay = lstDelay;
@@ -40,12 +39,12 @@ public class CstLost implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public CstLost(Integer lstId, String lstCustNo, String lstCustName,
-			Integer lstCustManagerId, String lstCustManagerName,
+	public CstLost(Long lstId, String lstCustNo, String lstCustName,
+			Long lstCustManagerId, String lstCustManagerName,
 			Date lstLastOrderDate, Date lstLostDate, String lstDelay,
-			String lstReason, Integer lstStatus) {
+			String lstReason, Long lstStatus) {
 		this.lstId = lstId;
-		 this.lstCustNo = lstCustNo;
+		this.lstCustNo = lstCustNo;
 		this.lstCustName = lstCustName;
 		this.lstCustManagerId = lstCustManagerId;
 		this.lstCustManagerName = lstCustManagerName;
@@ -58,20 +57,22 @@ public class CstLost implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getLstId() {
+	public Long getLstId() {
 		return this.lstId;
 	}
 
-	public void setLstId(Integer lstId) {
+	public void setLstId(Long lstId) {
 		this.lstId = lstId;
 	}
 
-	
-	public String getLstCustNo() { return this.lstCustNo; }
-	 
-	public void setLstCustNo(String lstCustNo) { this.lstCustNo = lstCustNo;
+	public String getLstCustNo() {
+		return this.lstCustNo;
 	}
-	 
+
+	public void setLstCustNo(String lstCustNo) {
+		this.lstCustNo = lstCustNo;
+	}
+
 	public String getLstCustName() {
 		return this.lstCustName;
 	}
@@ -80,11 +81,11 @@ public class CstLost implements java.io.Serializable {
 		this.lstCustName = lstCustName;
 	}
 
-	public Integer getLstCustManagerId() {
+	public Long getLstCustManagerId() {
 		return this.lstCustManagerId;
 	}
 
-	public void setLstCustManagerId(Integer lstCustManagerId) {
+	public void setLstCustManagerId(Long lstCustManagerId) {
 		this.lstCustManagerId = lstCustManagerId;
 	}
 
@@ -128,30 +129,12 @@ public class CstLost implements java.io.Serializable {
 		this.lstReason = lstReason;
 	}
 
-	public Integer getLstStatus() {
+	public Long getLstStatus() {
 		return this.lstStatus;
 	}
 
-	public void setLstStatus(Integer lstStatus) {
+	public void setLstStatus(Long lstStatus) {
 		this.lstStatus = lstStatus;
-	}
-
-	public CstCustomer getCstcustomer() {
-		return cstcustomer;
-	}
-
-	public void setCstcustomer(CstCustomer cstcustomer) {
-		this.cstcustomer = cstcustomer;
-	}
-
-	@Override
-	public String toString() {
-		return "CstLost [lstCustManagerId=" + lstCustManagerId
-				+ ", lstCustManagerName=" + lstCustManagerName+ ", lstCustNo=" + lstCustNo
-				+ ", lstCustName=" + lstCustName + ", lstDelay=" + lstDelay
-				+ ", lstId=" + lstId + ", lstLastOrderDate=" + lstLastOrderDate
-				+ ", lstLostDate=" + lstLostDate + ", lstReason=" + lstReason
-				+ ", lstStatus=" + lstStatus + "]";
 	}
 
 }

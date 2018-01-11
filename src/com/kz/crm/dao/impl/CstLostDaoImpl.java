@@ -15,7 +15,7 @@ import com.kz.crm.entity.CstLost;
 import com.kz.crm.entity.Orders;
 
 public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
-	// ·ÖÒ³²éÑ¯
+	// ï¿½ï¿½Ò³ï¿½ï¿½Ñ¯
 	public List currentPage(int page, int pageSize) {
 		int max = (page - 1) * pageSize;
 		Session session = this.getSession();
@@ -26,7 +26,7 @@ public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
 		return list;
 	}
 
-	// ×ÜÊý¾Ý
+	// ï¿½ï¿½ï¿½ï¿½ï¿½
 	public Long countPage() {
 		Session session = this.getSession();
 		Criteria criteria = session.createCriteria(CstLost.class);
@@ -35,53 +35,53 @@ public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
 		return list.get(0);
 	}
 
-	// ¸ù¾ÝID²éÑ¯
+	// ï¿½ï¿½ï¿½IDï¿½ï¿½Ñ¯
 	public CstLost queryId(int lstId) {
 		Session session = this.getSession();
 		CstLost cstLost = (CstLost) session.get(CstLost.class, lstId);
-		System.out.println("dao·½·¨µÄ======" + cstLost);
+		System.out.println("daoï¿½ï¿½ï¿½ï¿½ï¿½ï¿½======" + cstLost);
 		return cstLost;
 	}
-//ÐÞ¸Ä
+//ï¿½Þ¸ï¿½
 	public void update(Class<CstLost> class1,int lstId,String lstReason) {
 		Session session = this.getSession();
 		CstLost cstLost = (CstLost) session.get(class1, lstId);
 		cstLost.setLstReason(lstReason);
 	}
-	//Ìí¼Ó
+	//ï¿½ï¿½ï¿½
 	public void add(Object cstLost) {
 		Session session = this.getSession();
-		System.out.println("½øÈë¶¨Ê±Æ÷µÄÌí¼Ó"+cstLost);
+		System.out.println("ï¿½ï¿½ï¿½ë¶¨Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+cstLost);
 		session.save(cstLost);
 	}
-	//¶¨Ê±Æ÷
+	//ï¿½ï¿½Ê±ï¿½ï¿½
 	public List quartzquery(){
 		Session session = this.getSession();
-		//1,²éÑ¯¶©µ¥±í£¬¶©µ¥ÈÕÆÚ³¬¹ý6¸öÔÂµÄ¿Í»§µÄÃû×Ö
+		//1,ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½6ï¿½ï¿½ï¿½ÂµÄ¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//select * from orders where months_between(sysdate,odr_date)>6
 		String hql = "from Orders where months_between(sysdate,odrDate)>6";
 		Query query = session.createQuery(hql);
 		List<Orders> list1 = query.list();
-		//2,¸ù¾Ý¿Í»§µÄÃû×Ö²éÑ¯¿Í»§±íµÃµ½¿Í»§ËùÓÐÐÅÏ¢
-		//3,½«¸Ã¿Í»§ÐÅÏ¢Ìí¼Óµ½cst_lost±íÖÐ
+		//2,ï¿½ï¿½Ý¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Ñ¯ï¿½Í»ï¿½ï¿½ï¿½Ãµï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+		//3,ï¿½ï¿½ï¿½Ã¿Í»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Óµï¿½cst_lostï¿½ï¿½ï¿½ï¿½
 		String hql1="from CstCustomer where custName=?";
 		List<CstCustomer> list2 = new ArrayList<CstCustomer>();
 		List<CstLost> list = new ArrayList<CstLost>();
 		for (int i = 0; i < list1.size(); i++) {
 			CstLost cstLost = new CstLost();
 			System.out.println(list1+"==="+list.size());
-			list2 = session.createQuery(hql1).setParameter(0,list1.get(i).getOdrCustomer()).list();
+		//	list2 = session.createQuery(hql1).setParameter(0,list1.get(i).getOdrCustomer()).list();
 			cstLost.setLstCustName(list2.get(i).getCustName());
 			cstLost.setLstCustManagerName(list2.get(i).getCustManagerName());
 			cstLost.setLstLastOrderDate(list1.get(i).getOdrDate());
-			cstLost.setLstStatus(list2.get(i).getCustStatus());
+			// Todo
 			cstLost.setLstCustNo(list2.get(i).getCustNo());
 			cstLost.setLstCustManagerId(list2.get(i).getCustManagerId());
-			cstLost.setLstDelay("ÔÝÎÞ");
-			cstLost.setLstReason("ÔÝÎ´²éÃ÷");
+			cstLost.setLstDelay("ï¿½ï¿½ï¿½ï¿½");
+			cstLost.setLstReason("ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½");
 			list.add(cstLost);
 		}
-		System.out.println("ÍâÃæ"+list.size());
+		System.out.println("ï¿½ï¿½ï¿½ï¿½"+list.size());
 		return list;
 	}
 

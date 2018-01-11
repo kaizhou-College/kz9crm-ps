@@ -1,6 +1,6 @@
 package com.kz.crm.entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * SalPlan entity. @author MyEclipse Persistence Tools
@@ -10,59 +10,66 @@ public class SalPlan implements java.io.Serializable {
 
 	// Fields
 
-	private Integer plaId;
-	// private Integer plaChcId;
-	private Timestamp plaDate;
+	private Long plaId;
+//	private Integer plaChcId;
+	private Date plaDate;
 	private String plaTodo;
 	private String plaResult;
-	private SalChance chance;
-
+	
+	
+	private SalChance salChance;
+	
+	
 	// Constructors
+
+	public SalChance getSalChance() {
+		return salChance;
+	}
+
+	public void setSalChance(SalChance salChance) {
+		this.salChance = salChance;
+	}
 
 	/** default constructor */
 	public SalPlan() {
 	}
 
 	/** minimal constructor */
-	public SalPlan(Integer plaId, Integer plaChcId, Timestamp plaDate,
-			String plaTodo) {
-		this.plaId = plaId;
-		// this.plaChcId = plaChcId;
-		this.plaDate = plaDate;
-		this.plaTodo = plaTodo;
-	}
 
 	/** full constructor */
-	public SalPlan(Integer plaId, Integer plaChcId, Timestamp plaDate,
-			String plaTodo, String plaResult) {
+
+	// Property accessors
+
+
+//	public Integer getPlaChcId() {
+//		return this.plaChcId;
+//	}
+//
+//	public void setPlaChcId(Integer plaChcId) {
+//		this.plaChcId = plaChcId;
+//	}
+
+	public Date getPlaDate() {
+		return this.plaDate;
+	}
+
+	public SalPlan(Long plaId, Date plaDate, String plaTodo, String plaResult) {
+		super();
 		this.plaId = plaId;
-		// this.plaChcId = plaChcId;
 		this.plaDate = plaDate;
 		this.plaTodo = plaTodo;
 		this.plaResult = plaResult;
 	}
 
-	// Property accessors
-
-	public Integer getPlaId() {
-		return this.plaId;
+	public Long getPlaId() {
+		return plaId;
 	}
 
-	public void setPlaId(Integer plaId) {
+	public void setPlaId(Long plaId) {
 		this.plaId = plaId;
 	}
 
-	/*
-	 * public Integer getPlaChcId() { return this.plaChcId; }
-	 * 
-	 * public void setPlaChcId(Integer plaChcId) { this.plaChcId = plaChcId; }
-	 */
-
-	public Timestamp getPlaDate() {
-		return this.plaDate;
-	}
-
-	public void setPlaDate(Timestamp plaDate) {
+	public void setPlaDate(Date plaDate) {
 		this.plaDate = plaDate;
 	}
 
@@ -80,19 +87,6 @@ public class SalPlan implements java.io.Serializable {
 
 	public void setPlaResult(String plaResult) {
 		this.plaResult = plaResult;
-	}
-
-	public SalChance getChance() {
-		return chance;
-	}
-
-	public void setChance(SalChance chance) {
-		this.chance = chance;
-	}
-
-	public String toString() {
-		return "SalPlan [plaDate=" + plaDate + ", plaId=" + plaId
-				+ ", plaResult=" + plaResult + ", plaTodo=" + plaTodo + "]";
 	}
 
 }

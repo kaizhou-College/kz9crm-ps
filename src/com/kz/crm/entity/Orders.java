@@ -1,6 +1,8 @@
 package com.kz.crm.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Orders entity. @author MyEclipse Persistence Tools
@@ -10,32 +12,62 @@ public class Orders implements java.io.Serializable {
 
 	// Fields
 
-	private Integer odrId;
-	private String odrCustomer;
+	private Long odrId;
+//	private String odrCustomer;
 	private Date odrDate;
 	private String odrAddr;
-	private Integer odrStatus;
-	private CstCustomer cstCustomer;
+	private String odrStatus;
+	
+	private CstCustomer customer;
+	
+	
+	private Set<OrdersLine> orderLine=new HashSet<OrdersLine>();
+	
+	
+	
+	
+	
 	// Constructors
+
+
+	@Override
+	public String toString() {
+		return "Orders [odrAddr=" + odrAddr + ", odrDate=" + odrDate
+				+ ", odrId=" + odrId + ", odrStatus=" + odrStatus + "]";
+	}
+	public Set<OrdersLine> getOrderLine() {
+		return orderLine;
+	}
+
+	public void setOrderLine(Set<OrdersLine> orderLine) {
+		this.orderLine = orderLine;
+	}
+
+	public CstCustomer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CstCustomer customer) {
+		this.customer = customer;
+	}
 
 	/** default constructor */
 	public Orders() {
 	}
 
 	/** minimal constructor */
-	public Orders(Integer odrId, String odrCustomer, Date odrDate,
-			Integer odrStatus) {
+	public Orders(Long odrId, String odrCustomer, Date odrDate, String odrStatus) {
 		this.odrId = odrId;
-		this.odrCustomer = odrCustomer;
+//		this.odrCustomer = odrCustomer;
 		this.odrDate = odrDate;
 		this.odrStatus = odrStatus;
 	}
 
 	/** full constructor */
-	public Orders(Integer odrId, String odrCustomer, Date odrDate,
-			String odrAddr, Integer odrStatus) {
+	public Orders(Long odrId, String odrCustomer, Date odrDate, String odrAddr,
+			String odrStatus) {
 		this.odrId = odrId;
-		this.odrCustomer = odrCustomer;
+//		this.odrCustomer = odrCustomer;
 		this.odrDate = odrDate;
 		this.odrAddr = odrAddr;
 		this.odrStatus = odrStatus;
@@ -43,21 +75,21 @@ public class Orders implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getOdrId() {
+	public Long getOdrId() {
 		return this.odrId;
 	}
 
-	public void setOdrId(Integer odrId) {
+	public void setOdrId(Long odrId) {
 		this.odrId = odrId;
 	}
 
-	public String getOdrCustomer() {
-		return this.odrCustomer;
-	}
-
-	public void setOdrCustomer(String odrCustomer) {
-		this.odrCustomer = odrCustomer;
-	}
+//	public String getOdrCustomer() {
+//		return this.odrCustomer;
+//	}
+//
+//	public void setOdrCustomer(String odrCustomer) {
+//		this.odrCustomer = odrCustomer;
+//	}
 
 	public Date getOdrDate() {
 		return this.odrDate;
@@ -75,28 +107,12 @@ public class Orders implements java.io.Serializable {
 		this.odrAddr = odrAddr;
 	}
 
-	public Integer getOdrStatus() {
+	public String getOdrStatus() {
 		return this.odrStatus;
 	}
 
-	public void setOdrStatus(Integer odrStatus) {
+	public void setOdrStatus(String odrStatus) {
 		this.odrStatus = odrStatus;
 	}
-
-	public CstCustomer getCstCustomer() {
-		return cstCustomer;
-	}
-
-	public void setCstCustomer(CstCustomer cstCustomer) {
-		this.cstCustomer = cstCustomer;
-	}
-
-	@Override
-	public String toString() {
-		return "Orders [odrAddr=" + odrAddr+",odrCustomer=" + odrCustomer
-				+ ", odrDate=" + odrDate + ", odrId=" + odrId + ", odrStatus="
-				+ odrStatus + "]";
-	}
-	
 
 }

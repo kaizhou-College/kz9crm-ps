@@ -10,15 +10,16 @@ import java.util.Set;
 public class CstCustomer implements java.io.Serializable {
 
 	// Fields
+
 	private String custNo;
 	private String custName;
 	private String custRegion;
-	private Integer custManagerId;
+	private Long custManagerId;
 	private String custManagerName;
-	private Integer custLevel;
+	private Long custLevel;
 	private String custLevelLabel;
-	private Integer custSatisfy;
-	private Integer custCredit;
+	private Long custSatisfy;
+	private Long custCredit;
 	private String custAddr;
 	private String custZip;
 	private String custTel;
@@ -26,20 +27,81 @@ public class CstCustomer implements java.io.Serializable {
 	private String custWebsite;
 	private String custLicenceNo;
 	private String custChieftain;
-	private Integer custBankroll;
+	private Long custBankroll;
 	private String custTurnover;
 	private String custBank;
 	private String custBankAccount;
 	private String custLocalTaxNo;
 	private String custNationalTaxNo;
-	private Integer custStatus;
-	private Set<CstLost> cstlost = new HashSet<CstLost>();
-	private Set<CstActivity> activities = new HashSet<CstActivity>();
-	private Set<Orders> orders = new HashSet<Orders>();
+	private String custStatus;
+	private Set<CstLinkman> linKman=new HashSet<CstLinkman>();
+	
+	private Set<CstActivity> activity=new HashSet<CstActivity>();
+	private Set<Orders> order=new HashSet<Orders>();
+	
+	
+	
+	
 	// Constructors
+
+	public Set<Orders> getOrder() {
+		return order;
+	}
+
+
+
+	public void setOrder(Set<Orders> order) {
+		this.order = order;
+	}
+
+
+
+	public Set<CstActivity> getActivity() {
+		return activity;
+	}
+
+
+
+	public void setActivity(Set<CstActivity> activity) {
+		this.activity = activity;
+	}
+
+
 
 	/** default constructor */
 	public CstCustomer() {
+	}
+
+	
+
+	public Set<CstLinkman> getLinKman() {
+		return linKman;
+	}
+
+
+
+	public void setLinKman(Set<CstLinkman> linKman) {
+		this.linKman = linKman;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "CstCustomer [custAddr=" + custAddr + ", custBank=" + custBank
+				+ ", custBankAccount=" + custBankAccount + ", custBankroll="
+				+ custBankroll + ", custChieftain=" + custChieftain
+				+ ", custCredit=" + custCredit + ", custFax=" + custFax
+				+ ", custLevel=" + custLevel + ", custLevelLabel="
+				+ custLevelLabel + ", custLicenceNo=" + custLicenceNo
+				+ ", custLocalTaxNo=" + custLocalTaxNo + ", custManagerId="
+				+ custManagerId + ", custManagerName=" + custManagerName
+				+ ", custName=" + custName + ", custNationalTaxNo="
+				+ custNationalTaxNo + ", custNo=" + custNo + ", custRegion="
+				+ custRegion + ", custSatisfy=" + custSatisfy + ", custStatus="
+				+ custStatus + ", custTel=" + custTel + ", custTurnover="
+				+ custTurnover + ", custWebsite=" + custWebsite + ", custZip="
+				+ custZip + "]";
 	}
 
 	/** minimal constructor */
@@ -50,13 +112,13 @@ public class CstCustomer implements java.io.Serializable {
 
 	/** full constructor */
 	public CstCustomer(String custNo, String custName, String custRegion,
-			Integer custManagerId, String custManagerName, Integer custLevel,
-			String custLevelLabel, Integer custSatisfy, Integer custCredit,
+			Long custManagerId, String custManagerName, Long custLevel,
+			String custLevelLabel, Long custSatisfy, Long custCredit,
 			String custAddr, String custZip, String custTel, String custFax,
 			String custWebsite, String custLicenceNo, String custChieftain,
-			Integer custBankroll, String custTurnover, String custBank,
+			Long custBankroll, String custTurnover, String custBank,
 			String custBankAccount, String custLocalTaxNo,
-			String custNationalTaxNo, Integer custStatus) {
+			String custNationalTaxNo, String custStatus) {
 		this.custNo = custNo;
 		this.custName = custName;
 		this.custRegion = custRegion;
@@ -108,11 +170,11 @@ public class CstCustomer implements java.io.Serializable {
 		this.custRegion = custRegion;
 	}
 
-	public Integer getCustManagerId() {
+	public Long getCustManagerId() {
 		return this.custManagerId;
 	}
 
-	public void setCustManagerId(Integer custManagerId) {
+	public void setCustManagerId(Long custManagerId) {
 		this.custManagerId = custManagerId;
 	}
 
@@ -124,11 +186,11 @@ public class CstCustomer implements java.io.Serializable {
 		this.custManagerName = custManagerName;
 	}
 
-	public Integer getCustLevel() {
+	public Long getCustLevel() {
 		return this.custLevel;
 	}
 
-	public void setCustLevel(Integer custLevel) {
+	public void setCustLevel(Long custLevel) {
 		this.custLevel = custLevel;
 	}
 
@@ -140,19 +202,19 @@ public class CstCustomer implements java.io.Serializable {
 		this.custLevelLabel = custLevelLabel;
 	}
 
-	public Integer getCustSatisfy() {
+	public Long getCustSatisfy() {
 		return this.custSatisfy;
 	}
 
-	public void setCustSatisfy(Integer custSatisfy) {
+	public void setCustSatisfy(Long custSatisfy) {
 		this.custSatisfy = custSatisfy;
 	}
 
-	public Integer getCustCredit() {
+	public Long getCustCredit() {
 		return this.custCredit;
 	}
 
-	public void setCustCredit(Integer custCredit) {
+	public void setCustCredit(Long custCredit) {
 		this.custCredit = custCredit;
 	}
 
@@ -212,11 +274,11 @@ public class CstCustomer implements java.io.Serializable {
 		this.custChieftain = custChieftain;
 	}
 
-	public Integer getCustBankroll() {
+	public Long getCustBankroll() {
 		return this.custBankroll;
 	}
 
-	public void setCustBankroll(Integer custBankroll) {
+	public void setCustBankroll(Long custBankroll) {
 		this.custBankroll = custBankroll;
 	}
 
@@ -260,56 +322,12 @@ public class CstCustomer implements java.io.Serializable {
 		this.custNationalTaxNo = custNationalTaxNo;
 	}
 
-	public Integer getCustStatus() {
+	public String getCustStatus() {
 		return this.custStatus;
 	}
 
-	public void setCustStatus(Integer custStatus) {
+	public void setCustStatus(String custStatus) {
 		this.custStatus = custStatus;
 	}
-
-	public Set<CstLost> getCstlost() {
-		return cstlost;
-	}
-
-	public void setCstlost(Set<CstLost> cstlost) {
-		this.cstlost = cstlost;
-	}
-
-	public Set<CstActivity> getActivities() {
-		return activities;
-	}
-
-	public void setActivities(Set<CstActivity> activities) {
-		this.activities = activities;
-	}
-	
-
-	public Set<Orders> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(Set<Orders> orders) {
-		this.orders = orders;
-	}
-
-	@Override
-	public String toString() {
-		return "CstCustomer [custAddr=" + custAddr + ", custBank=" + custBank
-				+ ", custBankAccount=" + custBankAccount + ", custBankroll="
-				+ custBankroll + ", custChieftain=" + custChieftain
-				+ ", custCredit=" + custCredit + ", custFax=" + custFax
-				+ ", custLevel=" + custLevel + ", custLevelLabel="
-				+ custLevelLabel + ", custLicenceNo=" + custLicenceNo
-				+ ", custLocalTaxNo=" + custLocalTaxNo + ", custManagerId="
-				+ custManagerId + ", custManagerName=" + custManagerName
-				+ ", custName=" + custName + ", custNationalTaxNo="
-				+ custNationalTaxNo + ", custNo=" + custNo + ", custRegion="
-				+ custRegion + ", custSatisfy=" + custSatisfy + ", custStatus="
-				+ custStatus + ", custTel=" + custTel + ", custTurnover="
-				+ custTurnover + ", custWebsite=" + custWebsite + ", custZip="
-				+ custZip + "]";
-	}
-	
 
 }

@@ -37,32 +37,3 @@ classes/
 
 
 
-=======
-
-.myeclipse/
-
-
-.settings/
-
-
-*.class
-
-
-
-*.MF
-
-
-
-classes/
-
-
-
-*.classpath
-
-
-*.mymetadata
-
-
-*.project
-
->>>>>>> cac77ab6ab05c772099b2a328f006fb2e1cf5285

@@ -2,44 +2,49 @@ package com.kz.crm.entity;
 
 import java.util.Date;
 
+
 /**
  * CstActivity entity. @author MyEclipse Persistence Tools
  */
 
-public class CstActivity implements java.io.Serializable {
+public class CstActivity  implements java.io.Serializable {
 
-	// Fields
 
-	private Integer atvId;
-//	private String atvCustNo;
-	private String atvCustName;
-	private Date atvDate;
-	private String atvPlace;
-	private String atvTitle;
-	private String atvDesc;
-	private CstCustomer cstCustomer;
+    // Fields    
 
-	// Constructors
+     private Long atvId;
+//     private String atvCustNo;
+     private String atvCustName;
+     private Date atvDate;
+     private String atvPlace;
+     private String atvTitle;
+     private String atvDesc;
+     
+     private CstCustomer customer;
+     
+     
+
+    // Constructors
+
+    public CstCustomer getCustomer() {
+		return customer;
+	}
+
+
+	public void setCustomer(CstCustomer customer) {
+		this.customer = customer;
+	}
+
 
 	/** default constructor */
-	public CstActivity() {
-	}
+    public CstActivity() {
+    }
 
-	/** minimal constructor */
-	public CstActivity(Integer atvId, String atvCustNo, Date atvDate,
-			String atvPlace, String atvTitle) {
-		this.atvId = atvId;
-//		this.atvCustNo = atvCustNo;
-		this.atvDate = atvDate;
-		this.atvPlace = atvPlace;
-		this.atvTitle = atvTitle;
-	}
 
-	/** full constructor */
-	public CstActivity(Integer atvId, String atvCustNo, String atvCustName,
-			Date atvDate, String atvPlace, String atvTitle, String atvDesc) {
+	public CstActivity(Long atvId, String atvCustName, Date atvDate,
+			String atvPlace, String atvTitle, String atvDesc) {
+		super();
 		this.atvId = atvId;
-//		this.atvCustNo = atvCustNo;
 		this.atvCustName = atvCustName;
 		this.atvDate = atvDate;
 		this.atvPlace = atvPlace;
@@ -47,80 +52,81 @@ public class CstActivity implements java.io.Serializable {
 		this.atvDesc = atvDesc;
 	}
 
-	// Property accessors
 
-	public Integer getAtvId() {
-		return this.atvId;
+	@Override
+	public String toString() {
+		return "CstActivity [atvCustName=" + atvCustName + ", atvDate="
+				+ atvDate + ", atvDesc=" + atvDesc + ", atvId=" + atvId
+				+ ", atvPlace=" + atvPlace + ", atvTitle=" + atvTitle + "]";
 	}
 
-	public void setAtvId(Integer atvId) {
+
+	public Long getAtvId() {
+		return atvId;
+	}
+
+
+	public void setAtvId(Long atvId) {
 		this.atvId = atvId;
 	}
 
-/*	public String getAtvCustNo() {
-		return this.atvCustNo;
-	}
-
-	public void setAtvCustNo(String atvCustNo) {
-		this.atvCustNo = atvCustNo;
-	}*/
 
 	public String getAtvCustName() {
-		return this.atvCustName;
+		return atvCustName;
 	}
+
 
 	public void setAtvCustName(String atvCustName) {
 		this.atvCustName = atvCustName;
 	}
 
+
 	public Date getAtvDate() {
-		return this.atvDate;
+		return atvDate;
 	}
+
 
 	public void setAtvDate(Date atvDate) {
 		this.atvDate = atvDate;
 	}
 
+
 	public String getAtvPlace() {
-		return this.atvPlace;
+		return atvPlace;
 	}
+
 
 	public void setAtvPlace(String atvPlace) {
 		this.atvPlace = atvPlace;
 	}
 
+
 	public String getAtvTitle() {
-		return this.atvTitle;
+		return atvTitle;
 	}
+
 
 	public void setAtvTitle(String atvTitle) {
 		this.atvTitle = atvTitle;
 	}
 
+
 	public String getAtvDesc() {
-		return this.atvDesc;
+		return atvDesc;
 	}
+
 
 	public void setAtvDesc(String atvDesc) {
 		this.atvDesc = atvDesc;
 	}
 
-	public CstCustomer getCstCustomer() {
-		return cstCustomer;
-	}
+	
 
-	public void setCstCustomer(CstCustomer cstCustomer) {
-		this.cstCustomer = cstCustomer;
-	}
 
-	@Override
-	public String toString() {
-		return "CstActivity [atvCustName=" + atvCustName + ", atvDate=" + atvDate + ", atvDesc=" + atvDesc
-				+ ", atvId=" + atvId + ", atvPlace=" + atvPlace + ", atvTitle="
-				+ atvTitle + "]";
-	}
-	
-	
-	
+
+
+
+
+
 
 }
