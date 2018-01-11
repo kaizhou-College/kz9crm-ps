@@ -86,6 +86,13 @@ public class CstCustomer implements java.io.Serializable {
 
 
 
+
+	/** minimal constructor */
+	public CstCustomer(String custNo, String custName) {
+		this.custNo = custNo;
+		this.custName = custName;
+	}
+
 	@Override
 	public String toString() {
 		return "CstCustomer [custAddr=" + custAddr + ", custBank=" + custBank
@@ -104,13 +111,14 @@ public class CstCustomer implements java.io.Serializable {
 				+ custZip + "]";
 	}
 
-	/** minimal constructor */
-	public CstCustomer(String custNo, String custName) {
-		this.custNo = custNo;
-		this.custName = custName;
-	}
+
 
 	/** full constructor */
+
+
+	// Property accessors
+
+
 	public CstCustomer(String custNo, String custName, String custRegion,
 			Long custManagerId, String custManagerName, Long custLevel,
 			String custLevelLabel, Long custSatisfy, Long custCredit,
@@ -119,6 +127,7 @@ public class CstCustomer implements java.io.Serializable {
 			Long custBankroll, String custTurnover, String custBank,
 			String custBankAccount, String custLocalTaxNo,
 			String custNationalTaxNo, Long custStatus) {
+		super();
 		this.custNo = custNo;
 		this.custName = custName;
 		this.custRegion = custRegion;
@@ -322,9 +331,13 @@ public class CstCustomer implements java.io.Serializable {
 		this.custNationalTaxNo = custNationalTaxNo;
 	}
 
+
+
 	public Long getCustStatus() {
-		return this.custStatus;
+		return custStatus;
 	}
+
+
 
 	public void setCustStatus(Long custStatus) {
 		this.custStatus = custStatus;

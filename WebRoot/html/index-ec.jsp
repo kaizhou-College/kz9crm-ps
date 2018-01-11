@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@include file="/html/comm/comm.jsp" %>
+
 <HTML>
 <HEAD>
 <TITLE>客户关系管理系统</TITLE>
@@ -168,6 +169,7 @@ function MIMouseOver(imgName, theURL) {
 	var s = '';
 	if (imgName == 'plusMinusIcon') {
 		newImg = this.PMIconName();
+
 		s = '点击' + ((this.isopen == true) ? '關閉.' : '打开.');
 	} else {
 		if (imgName == 'docIcon') {
@@ -895,6 +897,7 @@ function initialise() {
 	//level表示最高级，level2子级，level3子子级，Document文件，folder文件夹。
 	//Set the initial state of the folder to "open"
 	l2ID = theMenu.addEntry(-1, "Folder", "客户关系管理系统", "mywork.htm", "客户关系管理系统");
+<<<<<<< HEAD
 	L01 = theMenu.addChild(l2ID, "Folder", "营销管理", "", "营销管理...");
 	L0101 = theMenu.addChild(L01, "Document", "销售机会管理", "salchance_query", "销售机会管理...");
 	L0102 = theMenu.addChild(L01, "Document", "客户开发计划", "plan_byPage", "客户开发计划...");
@@ -906,7 +909,7 @@ function initialise() {
 
 
 	L03 = theMenu.addChild(l2ID, "Folder", "服务管理", "", "客户服务管理...");
-	L0301 = theMenu.addChild(L03, "Document", "服务创建", "~cust/service/add.html", "服务创建...");
+	L0301 = theMenu.addChild(L03, "Document", "服务创建", "service_serviceAddTo", "服务创建...");
 	L0302 = theMenu.addChild(L03, "Document", "服务分配", "~cust/service/dispatch.html", "服务分配...");
 	L0303 = theMenu.addChild(L03, "Document", "服务处理", "~cust/service/deal.html", "服务处理...");
 	L0304 = theMenu.addChild(L03, "Document", "服务反馈", "~cust/service/feedback.html", "服务反馈...");

@@ -13,8 +13,7 @@ import com.kz.crm.service.CstLostBiz;
 public class CstLostBizImpl implements CstLostBiz {
 	@Autowired
 	private CstLostDao lostDao;
-
-	// ��ҳ��ѯ
+//分页
 	public List currentPage(int page, int pageSize) {
 
 		return lostDao.currentPage(page, pageSize);

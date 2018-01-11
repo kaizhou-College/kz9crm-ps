@@ -15,7 +15,6 @@ import com.kz.crm.entity.CstLost;
 import com.kz.crm.entity.Orders;
 
 public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
-	// 分页
 	public List currentPage(int page, int pageSize) {
 		int max = (page - 1) * pageSize;
 		Session session = this.getSession();
@@ -54,7 +53,6 @@ public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
 		System.out.println("dao里面定时器的添加"+cstLost);
 		session.save(cstLost);
 	}
-	//��ʱ��
 	public List quartzquery(){
 		Session session = this.getSession();
 		//select * from orders where months_between(sysdate,odr_date)>6
@@ -80,7 +78,7 @@ public class CstLostDaoImpl extends HibernateDaoSupport implements CstLostDao {
 		}
 		System.out.println("dao定时器"+list.size());
 		return list;
-	}
+		}
 
 
 }

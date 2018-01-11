@@ -96,8 +96,10 @@
 	<bean id="orderDao" class="com.kz.crm.dao.impl.OrderDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
-	
+	<bean id="ServiceDao" class="com.kz.crm.dao.impl.ServiceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
 	<bean id="dao" class="com.kz.crm.dao.impl.ChaceDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

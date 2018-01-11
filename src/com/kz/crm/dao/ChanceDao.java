@@ -8,6 +8,7 @@ public interface ChanceDao {
 	// 增加
 	public int save(SalChance chance);
 	//查询
+
 	public List query();
 
 }
