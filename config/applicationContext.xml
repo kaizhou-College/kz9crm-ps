@@ -1,0 +1,147 @@
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	">
+	<!-- 开启注解扫描 -->
+	<context:component-scan base-package="com.kz"></context:component-scan>
+
+	<!-- 加载数据库信息文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	<!-- 数据源:dbcp 
+		spring集成了多种数据源：dbcp  c3p0   jdbc.....
+	-->
+	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.user}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	
+	<!-- 配置sessionFactory  spring-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 加载配置文件hibernate.cfg.xml -->
+		<property name="configLocations" value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+	<!-- 注册事务管理器：spring -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 申明式事物
+		1，通知(advice):  事务管理器+横切面连接点
+		2, 切面(advisor)：通知+切点
+		3，植入(weaver)：将通知入侵到切面
+	 -->
+	 <!--1，通知(advice):  -->
+	<tx:advice id="kzadvice" transaction-manager="transactionManager">
+		<tx:attributes>
+
+			<tx:method name="*add*" propagation="REQUIRED"/>
+			<tx:method name="*save*" propagation="REQUIRED"/>
+			<tx:method name="*update*" propagation="REQUIRED"/>
+			<tx:method name="*delete*" propagation="REQUIRED"/>
+			<tx:method name="*Add*" propagation="REQUIRED"/>
+			<tx:method name="*Save*" propagation="REQUIRED"/>
+			<tx:method name="*Update*" propagation="REQUIRED"/>
+			<tx:method name="*Delete*" propagation="REQUIRED"/>
+			<tx:method name="timesWork" propagation="REQUIRED"/>
+			
+
+
+			<tx:method name="*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+	<!--aspect自动生成代理  -->
+	<aop:config>
+		<!--切点 -->
+		<aop:pointcut expression="execution(* com.kz.crm.service.impl.*.*(..))" id="kzpoint"/>
+
+		<!-- 切面 -->
+		<aop:advisor advice-ref="kzadvice" pointcut-ref="kzpoint"/>
+	</aop:config>
+	<!--为dao注入sessionFactory -->
+	<!-- <bean id="usersDao" class="com.kz.dao.impl.UsersDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> -->
+	
+	
+	<!-- plan Dao -->
+	<bean id="planDao" class="com.kz.crm.dao.impl.PlanDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- Customer dao -->
+	<bean id="customerDao" class="com.kz.crm.dao.impl.CustomerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="linkmanDao" class="com.kz.crm.dao.impl.LinkmanDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="activityDao" class="com.kz.crm.dao.impl.ActivityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="orderDao" class="com.kz.crm.dao.impl.OrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<bean id="dao" class="com.s.dao.impl.ChaceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="lostDao" class="com.s.dao.impl.CstLostDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 定时器 -->
+	    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+	<bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="doTime" />
+			</list>
+		</property>
+	</bean>
+	<!-- 要调用的工作类 -->
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject" ref="cstLostBizImpl" />
+		<!-- 调用类中的方法名称 -->
+		<property name="targetMethod">
+			<value>timesWork</value>
+		</property>
+	</bean>
+	<!-- 定义触发时间 -->
+	<bean id="doTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="jobtask" />
+		</property>		
+		<property name="cronExpression">
+			<!-- cron表达式:在每天早上8点到晚上8点期间每1分钟触发一次 -->
+			<!-- <value>0 0/1 8-20 * * ?</value> -->
+			<!-- cron表达式:每5分钟触发一次 -->
+			<value>0/5 * * * * ?</value>
+		</property>
+	</bean>
+	
+	
+</beans>
+
+
+
+
+
+

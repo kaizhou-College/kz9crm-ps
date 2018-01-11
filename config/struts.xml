@@ -1,0 +1,115 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="kzdefault" namespace="/html" extends="struts-default">
+		<!-- x销售管理 -->
+		<action name="plan_*" method="{1}" class="planAction">
+			<result name="bypage">
+				/html/~sale/dev.jsp
+			</result>
+			<result name="ajaxPlanDim">
+				/html/~sale/listDao.jsp
+			</result>
+			<result name="planList">
+				/html/~sale/dev_detail.jsp
+			</result>
+			<result  name="planListBeing">
+				/html/~sale/dev_plan.jsp
+			</result>
+			<result name="ajaxPlanUpdate">
+				/html/~sale/dev_plan.jsp
+			</result>
+		</action>
+		
+		<!-- 客户管理 -->
+		
+		
+		<action name="customer_*" class="cstCustomerAction" method="{1}">
+			<result name="customerList">
+				/html/~rept/~cust/cust/list.jsp
+			</result>
+			<result name="customerDelete" type="redirectAction">
+				customer_customerList
+			</result>
+			<result name="customerUpdateList">
+				/html/~rept/~cust/cust/edit.jsp
+			</result>
+			<result name="customerUpdate" type="redirectAction">
+				customer_customerList
+			</result>
+		</action>
+		
+		<action name="linkman_*" method="{1}" class="linkmanAction">
+			<result name="lingkmanList">
+				/html/~rept/~cust/cust/linkman.jsp
+			</result>
+			<result name="linkmanAddTo">
+				/html/~rept/~cust/cust/linkman_add.jsp
+			</result>
+			<result name="linkmanAdd" type="chain">
+				linkman_lingkmanList
+			</result>
+			<result name="linkmandelete"  type="chain">
+				linkman_lingkmanList
+			</result>
+			<result name="linkmanUpdateList" >
+				/html/~rept/~cust/cust/linkman_edit.jsp
+			</result>
+			<result name="linkmanUpdate" type="chain">
+				linkman_lingkmanList
+			</result>
+		</action>
+		
+		<action name="activity_*" method="{1}" class="activityAction">
+			<result name="activityList">
+				/html/~rept/~cust/cust/activities.jsp
+			</result>
+			<result name="activityAddTo">
+				/html/~rept/~cust/cust/activities_add.jsp
+			</result>
+			<result name="activityAdd" type="chain">
+				activity_activityList
+			</result>
+			<result name="activityUpdateList" >
+				/html/~rept/~cust/cust/activities_edit.jsp
+			</result>
+			<result name="activityUpdate" type="chain" >
+				activity_activityList
+			</result>
+			<result name="activityDelete" type="chain">
+				activity_activityList
+			</result>
+		</action>
+		<action name="order_*" method="{1}" class="orderAction">
+			<result name="orderList" >
+				/html/~rept/~cust/cust/orders.jsp
+			</result>
+			<result name="OrderLineList">
+				/html/~rept/~cust/cust/orders_detail.jsp
+			</result>
+		</action>
+	</package>
+</struts>
+=======
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<package name="crms-default" namespace="/html" extends="struts-default">
+			<action name="salchance_*" class="salChangeAction" method="{1}">
+				<result name="query_success">/html/~sale/list.jsp</result>
+				<result name="add_success" type="chain">change_query</result>
+				<result name="add_filed">/html/~sale/add.jsp</result>
+			</action>
+			<action name="cstlost_*" class="cstLostAction" method="{1}">
+				<result name="fenye">/html/~cust/lost/list.jsp</result>
+				<result name="updateid">/html/~cust/lost/confirm.jsp</result>
+				<result name="update_success" type="chain">cstlost_fenyequery</result>
+			</action>
+		</package>
+			
+	</struts>
+>>>>>>> 9464b7ef501b3855070f1fafb10b33f10fcc1e05
