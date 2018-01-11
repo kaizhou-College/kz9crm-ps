@@ -1,49 +1,28 @@
-<<<<<<< HEAD
-.myeclipse/
 
-.settings/
-
-*.class
-
-*.MF
-
-classes/
-
-.classpath
-
-.mymetadata
-
-.project
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 .myeclipse/
+
+
 .settings/
+
+
 *.class
+
+
+
 *.MF
+
+
+
 classes/
+
+
+
 .classpath
+
+
 .mymetadata
+
+
 .project
->>>>>>> 3db98167df5493190ee001a41f2e6df6c98adb39
+
+
