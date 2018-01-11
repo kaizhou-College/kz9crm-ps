@@ -19,29 +19,29 @@ public class SalChangeAction extends ActionSupport {
 	private ChanceBiz cb;
 	private Integer chcId;
 
-	// ²éÑ¯
+	// ï¿½ï¿½Ñ¯
 	public String query() {
-		System.out.println("½øÈë²éÑ¯");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯");
 		list = cb.query();
 		System.out.println(list);
 		return "query_success";
 	}
 
-	// ÐÂ½¨
+	// ï¿½Â½ï¿½
 	public String insert() {
-		System.out.println("½øÈëÐÂÔö");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		System.out.println(chance.getChcCustName());
 		int res = cb.save(chance);
 		if (res > 1) {
-			System.out.println("³É¹¦");
+			System.out.println("ï¿½É¹ï¿½");
 			return "add_success";
 		} else {
-			System.out.println("³É¹¦2323");
+			System.out.println("ï¿½É¹ï¿½2323");
 			return "add_filed";
 		}
 	}
 
-	// ¸ù¾ÝID²éÊý¾Ý
+	// ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½
 	public String toupdate() {
 		return "toupdate";
 	}

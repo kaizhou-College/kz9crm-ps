@@ -74,7 +74,6 @@
 		<aop:advisor advice-ref="kzadvice" pointcut-ref="kzpoint"/>
 	</aop:config>
 	<!--为dao注入sessionFactory -->
-<<<<<<< HEAD
 	<!-- <bean id="usersDao" class="com.kz.dao.impl.UsersDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean> -->
@@ -99,11 +98,10 @@
 	</bean>
 	
 	
-=======
-	<bean id="dao" class="com.s.dao.impl.ChaceDaoImpl">
+	<bean id="dao" class="com.kz.crm.dao.impl.ChaceDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="lostDao" class="com.s.dao.impl.CstLostDaoImpl">
+	<bean id="lostDao" class="com.kz.crm.dao.impl.CstLostDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
@@ -140,7 +138,6 @@
 	</bean>
 	
 	
->>>>>>> 9464b7ef501b3855070f1fafb10b33f10fcc1e05
 </beans>
 
 
