@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<package name="crms-default" namespace="/html" extends="struts-default">
+		<!-- 机会表 -->
+			<action name="salchance_*" class="salChangeAction" method="{1}">
+=======
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
@@ -140,15 +150,32 @@
 		
 		<!-- 舒 -->
 		<action name="salchance_*" class="salChangeAction" method="{1}">
+>>>>>>> 8e48ce42622848d8d520e21bd50d57426229b59a
 				<result name="query_success">/html/~sale/list.jsp</result>
 				<result name="add_success" type="chain">change_query</result>
 				<result name="add_filed">/html/~sale/add.jsp</result>
 			</action>
+<<<<<<< HEAD
+			<!-- 客户流失表 -->
+=======
+>>>>>>> 8e48ce42622848d8d520e21bd50d57426229b59a
 			<action name="cstlost_*" class="cstLostAction" method="{1}">
 				<result name="fenye">/html/~cust/lost/list.jsp</result>
 				<result name="updateid">/html/~cust/lost/confirm.jsp</result>
 				<result name="update_success" type="chain">cstlost_fenyequery</result>
 			</action>
+<<<<<<< HEAD
+			<!-- 客户贡献分析 -->
+			<action name="ordersline_*" class="cstContributionAction" method="{1}">
+				<result name="query_success">/html/~rept/contr.jsp</result>
+			</action>
+			<!-- 客户构成分析 -->
+			<action name=""></action>
+		</package>
+			
+	</struts>
+=======
 	</package>
 </struts>
+>>>>>>> 8e48ce42622848d8d520e21bd50d57426229b59a
 

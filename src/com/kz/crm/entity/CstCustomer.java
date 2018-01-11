@@ -34,8 +34,6 @@ public class CstCustomer implements java.io.Serializable {
 	private String custLocalTaxNo;
 	private String custNationalTaxNo;
 	private Long custStatus;
-	
-	
 	private Set<CstLinkman> linKman=new HashSet<CstLinkman>();
 	
 	private Set<CstActivity> activity=new HashSet<CstActivity>();
@@ -120,9 +118,6 @@ public class CstCustomer implements java.io.Serializable {
 
 	// Property accessors
 
-	public String getCustNo() {
-		return this.custNo;
-	}
 
 	public CstCustomer(String custNo, String custName, String custRegion,
 			Long custManagerId, String custManagerName, Long custLevel,
@@ -158,7 +153,11 @@ public class CstCustomer implements java.io.Serializable {
 		this.custStatus = custStatus;
 	}
 
+	// Property accessors
 
+	public String getCustNo() {
+		return this.custNo;
+	}
 
 	public void setCustNo(String custNo) {
 		this.custNo = custNo;
@@ -343,7 +342,5 @@ public class CstCustomer implements java.io.Serializable {
 	public void setCustStatus(Long custStatus) {
 		this.custStatus = custStatus;
 	}
-
-
 
 }

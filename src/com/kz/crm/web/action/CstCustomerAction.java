@@ -20,6 +20,7 @@ public class CstCustomerAction {
 	
 	//分页 上下跳  时会使用的数据
 	private   PageParam byPage;
+
 	//分页的初始数据   当前页面与每也显示的条数
 	private static final int PAGE_CUSTOMER_INDEX=1;
 	private static final int PAGE_CUSTOMER_SIZE=3;

@@ -13,7 +13,7 @@ public class Orders implements java.io.Serializable {
 	// Fields
 
 	private Long odrId;
-//	private String odrCustomer;
+	private String odrCustomer;
 	private Date odrDate;
 	private String odrAddr;
 	private String odrStatus;
@@ -32,8 +32,9 @@ public class Orders implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Orders [odrAddr=" + odrAddr + ", odrDate=" + odrDate
-				+ ", odrId=" + odrId + ", odrStatus=" + odrStatus + "]";
+		return "Orders [odrAddr=" + odrAddr + ", odrCustomer=" + odrCustomer
+				+ ", odrDate=" + odrDate + ", odrId=" + odrId + ", odrStatus="
+				+ odrStatus +"]";
 	}
 	public Set<OrdersLine> getOrderLine() {
 		return orderLine;
@@ -58,7 +59,7 @@ public class Orders implements java.io.Serializable {
 	/** minimal constructor */
 	public Orders(Long odrId, String odrCustomer, Date odrDate, String odrStatus) {
 		this.odrId = odrId;
-//		this.odrCustomer = odrCustomer;
+		this.odrCustomer = odrCustomer;
 		this.odrDate = odrDate;
 		this.odrStatus = odrStatus;
 	}
@@ -67,7 +68,7 @@ public class Orders implements java.io.Serializable {
 	public Orders(Long odrId, String odrCustomer, Date odrDate, String odrAddr,
 			String odrStatus) {
 		this.odrId = odrId;
-//		this.odrCustomer = odrCustomer;
+		this.odrCustomer = odrCustomer;
 		this.odrDate = odrDate;
 		this.odrAddr = odrAddr;
 		this.odrStatus = odrStatus;
@@ -83,13 +84,13 @@ public class Orders implements java.io.Serializable {
 		this.odrId = odrId;
 	}
 
-//	public String getOdrCustomer() {
-//		return this.odrCustomer;
-//	}
-//
-//	public void setOdrCustomer(String odrCustomer) {
-//		this.odrCustomer = odrCustomer;
-//	}
+	public String getOdrCustomer() {
+		return this.odrCustomer;
+	}
+
+	public void setOdrCustomer(String odrCustomer) {
+		this.odrCustomer = odrCustomer;
+	}
 
 	public Date getOdrDate() {
 		return this.odrDate;

@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="comm/comm.jsp" %>
+<%@include file="/html/comm/comm.jsp" %>
 
 <HTML>
 <HEAD>
@@ -897,15 +897,16 @@ function initialise() {
 	//level表示最高级，level2子级，level3子子级，Document文件，folder文件夹。
 	//Set the initial state of the folder to "open"
 	l2ID = theMenu.addEntry(-1, "Folder", "客户关系管理系统", "mywork.htm", "客户关系管理系统");
-	
+<<<<<<< HEAD
 	L01 = theMenu.addChild(l2ID, "Folder", "营销管理", "", "营销管理...");
-	L0101 = theMenu.addChild(L01, "Document", "销售机会管理", "~sale/list.html", "销售机会管理...");
+	L0101 = theMenu.addChild(L01, "Document", "销售机会管理", "salchance_query", "销售机会管理...");
 	L0102 = theMenu.addChild(L01, "Document", "客户开发计划", "plan_byPage", "客户开发计划...");
 
 	
 	L02 = theMenu.addChild(l2ID, "Folder", "客户管理", "", "客户管理...");
 	L0201 = theMenu.addChild(L02, "Document", "客户信息管理", "customer_customerList", "客户信息管理...");
-	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "~cust/lost/list.html", "客户流失管理...");	
+	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "cstlost_fenyequery", "客户流失管理...");	
+
 
 	L03 = theMenu.addChild(l2ID, "Folder", "服务管理", "", "客户服务管理...");
 	L0301 = theMenu.addChild(L03, "Document", "服务创建", "service_serviceAddTo", "服务创建...");
@@ -916,7 +917,7 @@ function initialise() {
 	
 	
 	L04 = theMenu.addChild(l2ID, "Folder", "统计报表", "", "统计报表...");
-	L0401 = theMenu.addChild(L04, "Document", "客户贡献分析", "~rept/contr.html", "客户贡献分析...");
+	L0401 = theMenu.addChild(L04, "Document", "客户贡献分析", "ordersline_query", "客户贡献分析...");
 	L0402 = theMenu.addChild(L04, "Document", "客户构成分析", "~rept/cons.html", "客户构成分析...");
 	L0403 = theMenu.addChild(L04, "Document", "客户服务分析", "~rept/ser.html", "客户服务分析...");
 	L0404 = theMenu.addChild(L04, "Document", "客户流失分析", "~rept/lost.html", "客户流失分析...");

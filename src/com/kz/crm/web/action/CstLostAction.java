@@ -16,48 +16,45 @@ public class CstLostAction {
 	private CstCustomer customer;
 	private CstLost cstLost;
 	private List list;
-	private Long countAll;// Ò»¹²¶àÉÙÌõÊı¾İ
-	private int max;// ×î´óÒ³Êı
-	private int page;// µ±Ç°Ò³Êı
-	private int pageIndex;// ¸ù¾İ´«¹ıÀ´µÄÒ³Êı²éÑ¯Êı¾İ
-	private int pageSize;// Ã¿Ò³¶àÉÙÌõÊı
-	private String url = "cstlost_fenyequery";// ·ÖÒ³²éÑ¯Â·¾¶
+	private Long countAll;//æ€»æ•°æ®
+	private int max;// æœ€å¤§é¡µ
+	private int page;// å½“å‰é¡µæ•°
+	private int pageIndex;//è¦é€‰æ‹©çš„æŸ¥è¯¢çš„é¡µæ•°
+	private int pageSize;//æ¯é¡µå¤šå°‘æ¡æ•°
+	private String url = "cstlost_fenyequery";//åˆ†é¡µæŸ¥è¯¢è·¯å¾„
 
-	/* ÒÔÏÂĞŞ¸Ä */
+	/* ä¿®æ”¹ */
 	private int lstId;
 	@Autowired
 	private CstLostBiz cstlb;
 
-	// ·ÖÒ³²éÑ¯
+	//åˆ†é¡µæŸ¥è¯¢
 	public String fenyequery() {
-//		System.out.println(pageIndex + "====µ±Ç°Ò³");
 		page = 1;
 		if (pageIndex > 1) {
-//			System.out.println("¹ş¹ş¹ş");
 			page = pageIndex;
 		}
 		pageSize = 1;
 		list = cstlb.currentPage(page, pageSize);
 
-//		System.out.println(list + "=====¼¯ºÏ");
 		countAll = cstlb.countPage();
 
 		max = (countAll.intValue() - 1) / pageSize + 1;
-//		System.out.println(countAll + "====×Ü¹²¶àÉÙÌõÊı¾İ");
+//		System.out.println(countAll + "====æ€»æ•°æ®");
 
 		return "fenye";
 	}
 
-	// ¸ù¾İID²éÑ¯ÒªĞŞ¸ÄµÄÊı¾İ
+	// æ ¹æ®IDæŸ¥è¦ä¿®æ”¹çš„æ•°æ®
 	public String updateid() {
-//		System.out.println("½øÈë²éÑ¯ĞŞ¸Ä" + lstId);
+//		System.out.println("è¿›å…¥ä¿®æ”¹æŸ¥è¯¢" + lstId);
 		cstLost = cstlb.queryId(lstId);
-//		System.out.println("actionÀïµÄÖµ===" + cstLost);
+//		System.out.println("actionï¿½ï¿½ï¿½Öµ===" + cstLost);
 		return "updateid";
 	}
-//ĞŞ¸Ä
+//ä¿®æ”¹
 	public String update(){
-//		System.out.println("½øÈëĞŞ¸Ä²Ù×÷id=="+lstId+"ÃèÊö====="+cstLost.getLstReason());
+//		System.out.println("è¦ä¿®æ”¹çš„id=="+lstId+"æè¿°====="+cstLost.getLstReason());
 		cstlb.updateId(CstLost.class,lstId,cstLost.getLstReason());
 		return "update_success";
 	}

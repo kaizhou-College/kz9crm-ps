@@ -12,7 +12,7 @@ public class OrdersLine implements java.io.Serializable {
 	// Fields
 
 	private Long oddId;
-//	private Long oddOrderId;
+	private Long oddOrderId;
 	private Long oddProdId;
 	private Long oddCount;
 	private String oddUnit;
@@ -34,11 +34,14 @@ public class OrdersLine implements java.io.Serializable {
 		this.product = product;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "OrdersLine [oddCount=" + oddCount + ", oddId=" + oddId
-				+ ", oddPrice=" + oddPrice + ", oddProdId=" + oddProdId
-				+ ", oddUnit=" + oddUnit + "]";
+		+ ", oddOrderId=" + oddOrderId+ ", oddPrice=" + oddPrice
+				+ ", oddProdId=" + oddProdId + ", oddUnit=" + oddUnit
+				+ ", product=" + product + "]";
 	}
 
 	public Orders getOrders() {
@@ -56,7 +59,7 @@ public class OrdersLine implements java.io.Serializable {
 	/** minimal constructor */
 	public OrdersLine(Long oddId, Long oddOrderId, Long oddProdId, Long oddCount) {
 		this.oddId = oddId;
-//		this.oddOrderId = oddOrderId;
+		this.oddOrderId = oddOrderId;
 		this.oddProdId = oddProdId;
 		this.oddCount = oddCount;
 	}
@@ -65,7 +68,7 @@ public class OrdersLine implements java.io.Serializable {
 	public OrdersLine(Long oddId, Long oddOrderId, Long oddProdId,
 			Long oddCount, String oddUnit, Long oddPrice) {
 		this.oddId = oddId;
-//		this.oddOrderId = oddOrderId;
+		this.oddOrderId = oddOrderId;
 		this.oddProdId = oddProdId;
 		this.oddCount = oddCount;
 		this.oddUnit = oddUnit;
@@ -82,13 +85,13 @@ public class OrdersLine implements java.io.Serializable {
 		this.oddId = oddId;
 	}
 
-//	public Long getOddOrderId() {
-//		return this.oddOrderId;
-//	}
-//
-//	public void setOddOrderId(Long oddOrderId) {
-//		this.oddOrderId = oddOrderId;
-//	}
+	public Long getOddOrderId() {
+		return this.oddOrderId;
+	}
+
+	public void setOddOrderId(Long oddOrderId) {
+		this.oddOrderId = oddOrderId;
+	}
 
 	public Long getOddProdId() {
 		return this.oddProdId;

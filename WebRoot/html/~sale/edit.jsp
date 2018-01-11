@@ -1,5 +1,4 @@
 <%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
-
 <%@include file="../comm/comm.jsp"%>
 <html>
 <head>

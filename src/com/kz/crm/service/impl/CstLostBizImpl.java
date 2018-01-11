@@ -13,7 +13,7 @@ import com.kz.crm.service.CstLostBiz;
 public class CstLostBizImpl implements CstLostBiz {
 	@Autowired
 	private CstLostDao lostDao;
-
+//分页
 	public List currentPage(int page, int pageSize) {
 
 		return lostDao.currentPage(page, pageSize);
@@ -38,9 +38,9 @@ public class CstLostBizImpl implements CstLostBiz {
 	public void updateId(Class<CstLost> class1,int lstId,String lstReason) {
 		lostDao.update(class1,lstId,lstReason);
 	}
-	//��ʱ��
+	//定时器
 	public void timesWork(){
-		System.out.println("��ʱ������");
+		System.out.println("定时器");
 		List<CstLost> list = lostDao.quartzquery();
 		System.out.println("bizimpl----------"+list.size());
 		for (int i = 0; i < list.size(); i++) {
@@ -51,9 +51,9 @@ public class CstLostBizImpl implements CstLostBiz {
 			cstLost.setLstLastOrderDate(list.get(i).getLstLastOrderDate());
 			cstLost.setLstStatus(list.get(i).getLstStatus());
 			cstLost.setLstCustNo(list.get(i).getLstCustNo());
-			cstLost.setLstDelay("暂缓措施");
-			cstLost.setLstReason("流失原因");
-			System.out.println("��ʱ������Ӷ���====="+cstLost);
+			cstLost.setLstDelay("暂无");
+			cstLost.setLstReason("暂未查明");
+			System.out.println("impl====="+cstLost);
 			add(cstLost);
 		}
 	}
