@@ -3,6 +3,6 @@
 *.class
 *.MF
 classes/
-.classpath
-.mymetadata
-.project
+*.classpath
+*.mymetadata
+*.project
