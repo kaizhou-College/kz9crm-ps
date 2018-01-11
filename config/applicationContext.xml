@@ -17,6 +17,7 @@
 	">
 	<!-- 开启注解扫描 -->
 	<context:component-scan base-package="com.kz"></context:component-scan>
+
 	<!-- 加载数据库信息文件 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<!-- 数据源:dbcp 
@@ -48,6 +49,7 @@
 	 <!--1，通知(advice):  -->
 	<tx:advice id="kzadvice" transaction-manager="transactionManager">
 		<tx:attributes>
+
 			<tx:method name="*add*" propagation="REQUIRED"/>
 			<tx:method name="*save*" propagation="REQUIRED"/>
 			<tx:method name="*update*" propagation="REQUIRED"/>
@@ -56,7 +58,10 @@
 			<tx:method name="*Save*" propagation="REQUIRED"/>
 			<tx:method name="*Update*" propagation="REQUIRED"/>
 			<tx:method name="*Delete*" propagation="REQUIRED"/>
+			<tx:method name="timesWork" propagation="REQUIRED"/>
 			
+
+
 			<tx:method name="*" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
@@ -64,10 +69,12 @@
 	<aop:config>
 		<!--切点 -->
 		<aop:pointcut expression="execution(* com.kz.crm.service.impl.*.*(..))" id="kzpoint"/>
+
 		<!-- 切面 -->
 		<aop:advisor advice-ref="kzadvice" pointcut-ref="kzpoint"/>
 	</aop:config>
 	<!--为dao注入sessionFactory -->
+<<<<<<< HEAD
 	<!-- <bean id="usersDao" class="com.kz.dao.impl.UsersDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean> -->
@@ -90,6 +97,50 @@
 	<bean id="orderDao" class="com.kz.crm.dao.impl.OrderDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	
+=======
+	<bean id="dao" class="com.s.dao.impl.ChaceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="lostDao" class="com.s.dao.impl.CstLostDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 定时器 -->
+	    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+	<bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="doTime" />
+			</list>
+		</property>
+	</bean>
+	<!-- 要调用的工作类 -->
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject" ref="cstLostBizImpl" />
+		<!-- 调用类中的方法名称 -->
+		<property name="targetMethod">
+			<value>timesWork</value>
+		</property>
+	</bean>
+	<!-- 定义触发时间 -->
+	<bean id="doTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="jobtask" />
+		</property>		
+		<property name="cronExpression">
+			<!-- cron表达式:在每天早上8点到晚上8点期间每1分钟触发一次 -->
+			<!-- <value>0 0/1 8-20 * * ?</value> -->
+			<!-- cron表达式:每5分钟触发一次 -->
+			<value>0 0/5 * * * ?</value>
+		</property>
+	</bean>
+	
+	
+>>>>>>> 9464b7ef501b3855070f1fafb10b33f10fcc1e05
 </beans>
 
 

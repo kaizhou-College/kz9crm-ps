@@ -1,4 +1,3 @@
-
 function reload(){
 	alert($("#from1").serialize());
 	
