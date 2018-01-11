@@ -22,6 +22,7 @@ public class LinkmanBizimp implements LinkmanBiz{
 
 	public void linkmanAdd(CstCustomer cus, CstLinkman lin) {
 		long unboundedLong = new Random().nextLong();
+		System.out.println(unboundedLong);
 		lin.setLkmId(unboundedLong);
 		linkmanDao.linkmanAdd(cus,lin);
 	}

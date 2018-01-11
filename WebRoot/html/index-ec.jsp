@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="com/com.jsp" %>
+<%@include file="comm/comm.jsp" %>
 
 <HTML>
 <HEAD>
@@ -908,7 +908,7 @@ function initialise() {
 	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "~cust/lost/list.html", "客户流失管理...");	
 
 	L03 = theMenu.addChild(l2ID, "Folder", "服务管理", "", "客户服务管理...");
-	L0301 = theMenu.addChild(L03, "Document", "服务创建", "~cust/service/add.html", "服务创建...");
+	L0301 = theMenu.addChild(L03, "Document", "服务创建", "service_serviceAddTo", "服务创建...");
 	L0302 = theMenu.addChild(L03, "Document", "服务分配", "~cust/service/dispatch.html", "服务分配...");
 	L0303 = theMenu.addChild(L03, "Document", "服务处理", "~cust/service/deal.html", "服务处理...");
 	L0304 = theMenu.addChild(L03, "Document", "服务反馈", "~cust/service/feedback.html", "服务反馈...");

@@ -7,7 +7,6 @@
 <hibernate-configuration>
 
 <session-factory>
-
 	<property name="dialect">
 		org.hibernate.dialect.Oracle9Dialect
 	</property>

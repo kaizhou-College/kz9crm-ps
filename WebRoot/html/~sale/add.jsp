@@ -1,9 +1,6 @@
 <%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@include file="/comm/comm.jsp"%>
-<!--
+<%@include file="../comm/comm.jsp"%>
 
-//-->
-</script>
 <html>
 <head>
 <title>jb-aptech毕业设计项目</title>

@@ -73,7 +73,7 @@
         <property name="custNationalTaxNo" type="java.lang.String">
             <column name="CUST_NATIONAL_TAX_NO" length="100" />
         </property>
-        <property name="custStatus" type="java.lang.String">
+        <property name="custStatus" type="java.lang.Long">
             <column name="CUST_STATUS" length="1" />
         </property>
         

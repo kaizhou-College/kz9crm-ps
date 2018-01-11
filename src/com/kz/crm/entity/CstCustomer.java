@@ -33,7 +33,9 @@ public class CstCustomer implements java.io.Serializable {
 	private String custBankAccount;
 	private String custLocalTaxNo;
 	private String custNationalTaxNo;
-	private String custStatus;
+	private Long custStatus;
+	
+	
 	private Set<CstLinkman> linKman=new HashSet<CstLinkman>();
 	
 	private Set<CstActivity> activity=new HashSet<CstActivity>();
@@ -86,6 +88,13 @@ public class CstCustomer implements java.io.Serializable {
 
 
 
+
+	/** minimal constructor */
+	public CstCustomer(String custNo, String custName) {
+		this.custNo = custNo;
+		this.custName = custName;
+	}
+
 	@Override
 	public String toString() {
 		return "CstCustomer [custAddr=" + custAddr + ", custBank=" + custBank
@@ -104,13 +113,17 @@ public class CstCustomer implements java.io.Serializable {
 				+ custZip + "]";
 	}
 
-	/** minimal constructor */
-	public CstCustomer(String custNo, String custName) {
-		this.custNo = custNo;
-		this.custName = custName;
-	}
+
 
 	/** full constructor */
+
+
+	// Property accessors
+
+	public String getCustNo() {
+		return this.custNo;
+	}
+
 	public CstCustomer(String custNo, String custName, String custRegion,
 			Long custManagerId, String custManagerName, Long custLevel,
 			String custLevelLabel, Long custSatisfy, Long custCredit,
@@ -118,7 +131,8 @@ public class CstCustomer implements java.io.Serializable {
 			String custWebsite, String custLicenceNo, String custChieftain,
 			Long custBankroll, String custTurnover, String custBank,
 			String custBankAccount, String custLocalTaxNo,
-			String custNationalTaxNo, String custStatus) {
+			String custNationalTaxNo, Long custStatus) {
+		super();
 		this.custNo = custNo;
 		this.custName = custName;
 		this.custRegion = custRegion;
@@ -144,11 +158,7 @@ public class CstCustomer implements java.io.Serializable {
 		this.custStatus = custStatus;
 	}
 
-	// Property accessors
 
-	public String getCustNo() {
-		return this.custNo;
-	}
 
 	public void setCustNo(String custNo) {
 		this.custNo = custNo;
@@ -322,12 +332,18 @@ public class CstCustomer implements java.io.Serializable {
 		this.custNationalTaxNo = custNationalTaxNo;
 	}
 
-	public String getCustStatus() {
-		return this.custStatus;
+
+
+	public Long getCustStatus() {
+		return custStatus;
 	}
 
-	public void setCustStatus(String custStatus) {
+
+
+	public void setCustStatus(Long custStatus) {
 		this.custStatus = custStatus;
 	}
+
+
 
 }

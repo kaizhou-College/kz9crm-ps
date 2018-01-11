@@ -36,6 +36,20 @@ public class CstService implements java.io.Serializable {
 	public CstService() {
 	}
 
+	@Override
+	public String toString() {
+		return "CstService [svrCreateBy=" + svrCreateBy + ", svrCreateDate="
+				+ svrCreateDate + ", svrCreateId=" + svrCreateId
+				+ ", svrCustName=" + svrCustName + ", svrCustNo=" + svrCustNo
+				+ ", svrDeal=" + svrDeal + ", svrDealBy=" + svrDealBy
+				+ ", svrDealDate=" + svrDealDate + ", svrDealId=" + svrDealId
+				+ ", svrDueDate=" + svrDueDate + ", svrDueId=" + svrDueId
+				+ ", svrDueTo=" + svrDueTo + ", svrId=" + svrId
+				+ ", svrRequest=" + svrRequest + ", svrResult=" + svrResult
+				+ ", svrSatisfy=" + svrSatisfy + ", svrStatus=" + svrStatus
+				+ ", svrTitle=" + svrTitle + ", svrType=" + svrType + "]";
+	}
+
 	/** minimal constructor */
 	public CstService(Long svrId, String svrType, String svrTitle,
 			String svrCustName, String svrStatus, String svrRequest,

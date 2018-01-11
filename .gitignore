@@ -1,27 +1,39 @@
 
-.myeclipse/
-
-
 .settings/
 
+*.class
 
-*.class
-
-
-
-*.MF
-
-
+*.MF
 
 classes/
 
+*.classpath
+
+*.mymetadata
+
+*.project
+
+.myeclipse/
 
 
-*.classpath
 
 
-*.mymetadata
 
 
-*.project
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

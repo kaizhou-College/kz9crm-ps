@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="/html/com/com.jsp" %>
+<%@include file="/html/comm/comm.jsp" %>
 <s:iterator value="byPage" var="list">
 		<tr>
 		<td class="list_data_number"><s:property value="#list.chcId"/>111</td>

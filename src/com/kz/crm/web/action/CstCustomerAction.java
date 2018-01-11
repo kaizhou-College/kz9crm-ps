@@ -56,6 +56,7 @@ public class CstCustomerAction {
 	
 	//分頁
 	public String customerList(){
+		System.out.println("贱人了哈哈哈--");
 		//如果byPage没有初始化就给它设置一个当前页面
 		if(byPage==null){
 			byPage=new ByPage();
@@ -66,10 +67,10 @@ public class CstCustomerAction {
 		//设置上下页跳的路径
 		byPage.setPageUrl("customer_customerList");
 		//设置一共有多少条数据
-		byPage.setCount(coustomerBiz.countCustomer());
+		byPage.setCountPlan(coustomerBiz.countCustomer());
 		
 		//设置一共有多少页
-		int max=new Long(byPage.getCount()).intValue();//long转int 
+		int max=new Long(byPage.getCountPlan()).intValue();//long转int 
 		byPage.setPageMax(((max-1)/byPage.getPageSize())+1);//算出一共有多少页
 		
 		

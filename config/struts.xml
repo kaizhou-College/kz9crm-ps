@@ -90,5 +90,25 @@
 				/html/~rept/~cust/cust/orders_detail.jsp
 			</result>
 		</action>
+		<action name="service_*" method="{1}" class="serviceAction" >
+			<result name="serviceAddTo" >
+			   	/html/~cust/service/add.jsp
+			</result>
+		</action>
+		
+		
+		
+		<!-- 舒 -->
+		<action name="salchance_*" class="salChangeAction" method="{1}">
+				<result name="query_success">/html/~sale/list.jsp</result>
+				<result name="add_success" type="chain">change_query</result>
+				<result name="add_filed">/html/~sale/add.jsp</result>
+			</action>
+			<action name="cstlost_*" class="cstLostAction" method="{1}">
+				<result name="fenye">/html/~cust/lost/list.jsp</result>
+				<result name="updateid">/html/~cust/lost/confirm.jsp</result>
+				<result name="update_success" type="chain">cstlost_fenyequery</result>
+			</action>
 	</package>
 </struts>
+
