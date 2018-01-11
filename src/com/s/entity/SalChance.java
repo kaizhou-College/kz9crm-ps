@@ -14,9 +14,11 @@ public class SalChance implements java.io.Serializable {
 
 	private Integer chcId;
 	private String chcSource;
+
 	public void setChcId(Integer chcId) {
 		this.chcId = chcId;
 	}
+
 	private String chcCustName;
 	private String chcTitle;
 	private Integer chcRate;
@@ -31,10 +33,12 @@ public class SalChance implements java.io.Serializable {
 	private Timestamp chcDueDate;
 	private Integer chcStatus;
 	private SalPlan plan;
+
 	public SalChance() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public SalChance(Integer chcId, String chcSource, String chcCustName,
 			String chcTitle, Integer chcRate, String chcLinkman, String chcTel,
 			String chcDesc, Integer chcCreateId, String chcCreateBy,
@@ -57,109 +61,140 @@ public class SalChance implements java.io.Serializable {
 		this.chcDueDate = chcDueDate;
 		this.chcStatus = chcStatus;
 	}
+
 	public Integer getChcId() {
 		return chcId;
 	}
+
 	public String getChcSource() {
 		return chcSource;
 	}
+
 	public String getChcCustName() {
 		return chcCustName;
 	}
+
 	public void setChcSource(String chcSource) {
 		this.chcSource = chcSource;
 	}
+
 	public void setChcCustName(String chcCustName) {
 		this.chcCustName = chcCustName;
 	}
+
 	public void setChcTitle(String chcTitle) {
 		this.chcTitle = chcTitle;
 	}
+
 	public void setChcRate(Integer chcRate) {
 		this.chcRate = chcRate;
 	}
+
 	public void setChcLinkman(String chcLinkman) {
 		this.chcLinkman = chcLinkman;
 	}
+
 	public void setChcTel(String chcTel) {
 		this.chcTel = chcTel;
 	}
+
 	public void setChcDesc(String chcDesc) {
 		this.chcDesc = chcDesc;
 	}
+
 	public void setChcCreateId(Integer chcCreateId) {
 		this.chcCreateId = chcCreateId;
 	}
+
 	public void setChcCreateBy(String chcCreateBy) {
 		this.chcCreateBy = chcCreateBy;
 	}
+
 	public void setChcCreateDate(Timestamp chcCreateDate) {
 		this.chcCreateDate = chcCreateDate;
 	}
+
 	public void setChcDueId(Integer chcDueId) {
 		this.chcDueId = chcDueId;
 	}
+
 	public void setChcDueTo(String chcDueTo) {
 		this.chcDueTo = chcDueTo;
 	}
+
 	public void setChcDueDate(Timestamp chcDueDate) {
 		this.chcDueDate = chcDueDate;
 	}
+
 	public void setChcStatus(Integer chcStatus) {
 		this.chcStatus = chcStatus;
 	}
+
 	public void setPlan(SalPlan plan) {
 		this.plan = plan;
 	}
+
 	public String getChcTitle() {
 		return chcTitle;
 	}
+
 	public Integer getChcRate() {
 		return chcRate;
 	}
+
 	public String getChcLinkman() {
 		return chcLinkman;
 	}
+
 	public String getChcTel() {
 		return chcTel;
 	}
+
 	public String getChcDesc() {
 		return chcDesc;
 	}
+
 	public Integer getChcCreateId() {
 		return chcCreateId;
 	}
+
 	public String getChcCreateBy() {
 		return chcCreateBy;
 	}
+
 	public Timestamp getChcCreateDate() {
 		return chcCreateDate;
 	}
+
 	public Integer getChcDueId() {
 		return chcDueId;
 	}
+
 	public String getChcDueTo() {
 		return chcDueTo;
 	}
+
 	public Timestamp getChcDueDate() {
 		return chcDueDate;
 	}
+
 	public Integer getChcStatus() {
 		return chcStatus;
 	}
+
 	public SalPlan getPlan() {
 		return plan;
 	}
+
 	public String toString() {
 		return "SalChance [chcCreateBy=" + chcCreateBy + ", chcCreateDate="
 				+ chcCreateDate + ", chcCreateId=" + chcCreateId
 				+ ", chcCustName=" + chcCustName + ", chcDesc=" + chcDesc
 				+ ", chcDueDate=" + chcDueDate + ", chcDueId=" + chcDueId
-				+ ", chcDueTo=" + chcDueTo 
-				+ ", chcLinkman=" + chcLinkman + ", chcRate=" + chcRate
-				+ ", chcSource=" + chcSource + ", chcStatus=" + chcStatus
-				+ ", chcTel=" + chcTel + ", chcTitle=" + chcTitle + "]";
+				+ ", chcDueTo=" + chcDueTo + ", chcLinkman=" + chcLinkman
+				+ ", chcRate=" + chcRate + ", chcSource=" + chcSource
+				+ ", chcStatus=" + chcStatus + ", chcTel=" + chcTel
+				+ ", chcTitle=" + chcTitle + "]";
 	}
-	
-	
+
 }

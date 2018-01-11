@@ -12,7 +12,10 @@
 	<property name="format_sql">true</property>
 	<mapping resource="com/s/entity/SalChance.hbm.xml" />
 	<mapping resource="com/s/entity/SalPlan.hbm.xml" />
-
+	<mapping resource="com/s/entity/CstCustomer.hbm.xml" />
+	<mapping resource="com/s/entity/CstLost.hbm.xml" />
+	<mapping resource="com/s/entity/CstActivity.hbm.xml" />
+	<mapping resource="com/s/entity/Orders.hbm.xml" />
 </session-factory>
 
 </hibernate-configuration>

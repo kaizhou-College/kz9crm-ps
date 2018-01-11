@@ -8,26 +8,22 @@ import org.springframework.stereotype.Service;
 import com.s.dao.ChanceDao;
 import com.s.entity.SalChance;
 import com.s.service.ChanceBiz;
+
 @Service
-public class ChanceBizImpl implements ChanceBiz{
+public class ChanceBizImpl implements ChanceBiz {
 	@Autowired
 	private ChanceDao dao;
-	//查询
+
+	// 查询
 	public List query() {
 		List list = dao.query();
 		return list;
 	}
-	//新增
+
+	// 新增
 	public int save(SalChance chance) {
 		int res = dao.save(chance);
 		return res;
 	}
-	
-	
-	
-
-
-
-
 
 }

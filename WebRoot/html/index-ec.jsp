@@ -901,7 +901,7 @@ function initialise() {
 	
 	L02 = theMenu.addChild(l2ID, "Folder", "客户管理", "", "客户管理...");
 	L0201 = theMenu.addChild(L02, "Document", "客户信息管理", "~cust/cust/list.html", "客户信息管理...");
-	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "~cust/lost/list.html", "客户流失管理...");	
+	L0201 = theMenu.addChild(L02, "Document", "客户流失管理", "cstlost_fenyequery", "客户流失管理...");	
 
 	L03 = theMenu.addChild(l2ID, "Folder", "服务管理", "", "客户服务管理...");
 	L0301 = theMenu.addChild(L03, "Document", "服务创建", "~cust/service/add.html", "服务创建...");

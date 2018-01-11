@@ -11,7 +11,7 @@ public class SalPlan implements java.io.Serializable {
 	// Fields
 
 	private Integer plaId;
-//	private Integer plaChcId;
+	// private Integer plaChcId;
 	private Timestamp plaDate;
 	private String plaTodo;
 	private String plaResult;
@@ -27,7 +27,7 @@ public class SalPlan implements java.io.Serializable {
 	public SalPlan(Integer plaId, Integer plaChcId, Timestamp plaDate,
 			String plaTodo) {
 		this.plaId = plaId;
-//		this.plaChcId = plaChcId;
+		// this.plaChcId = plaChcId;
 		this.plaDate = plaDate;
 		this.plaTodo = plaTodo;
 	}
@@ -36,7 +36,7 @@ public class SalPlan implements java.io.Serializable {
 	public SalPlan(Integer plaId, Integer plaChcId, Timestamp plaDate,
 			String plaTodo, String plaResult) {
 		this.plaId = plaId;
-//		this.plaChcId = plaChcId;
+		// this.plaChcId = plaChcId;
 		this.plaDate = plaDate;
 		this.plaTodo = plaTodo;
 		this.plaResult = plaResult;
@@ -52,13 +52,11 @@ public class SalPlan implements java.io.Serializable {
 		this.plaId = plaId;
 	}
 
-/*	public Integer getPlaChcId() {
-		return this.plaChcId;
-	}
-
-	public void setPlaChcId(Integer plaChcId) {
-		this.plaChcId = plaChcId;
-	}*/
+	/*
+	 * public Integer getPlaChcId() { return this.plaChcId; }
+	 * 
+	 * public void setPlaChcId(Integer plaChcId) { this.plaChcId = plaChcId; }
+	 */
 
 	public Timestamp getPlaDate() {
 		return this.plaDate;
@@ -97,5 +95,4 @@ public class SalPlan implements java.io.Serializable {
 				+ ", plaResult=" + plaResult + ", plaTodo=" + plaTodo + "]";
 	}
 
-	
 }

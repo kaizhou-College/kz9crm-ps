@@ -6,7 +6,7 @@
  <uri>http://crms/currentpage</uri>
  <tag>
   <name>fy</name>
-  <tag-class>com.kz.crm.tag.TagCurrentPage</tag-class>
+  <tag-class>com.s.tag.TagCurrentPage</tag-class>
   <body-content>scriptless</body-content>
   <attribute>
    <name>pageIndex</name>

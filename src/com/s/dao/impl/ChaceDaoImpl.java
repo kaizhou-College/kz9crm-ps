@@ -8,16 +8,18 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.s.dao.ChanceDao;
 import com.s.entity.SalChance;
 
-public class ChaceDaoImpl extends HibernateDaoSupport implements ChanceDao{
-	//新增
+public class ChaceDaoImpl extends HibernateDaoSupport implements ChanceDao {
+	// 新增
 	public int save(SalChance chance) {
 		Session session = this.getSession();
-		return (Integer)session.save(chance);
+		return (Integer) session.save(chance);
 	}
-//查询
+
+	// 查询
 	public List query() {
 		Session session = this.getSession();
-		List<SalChance> list= (List) session.createCriteria(SalChance.class).list();
+		List<SalChance> list = (List) session.createCriteria(SalChance.class)
+				.list();
 		return list;
 	}
 

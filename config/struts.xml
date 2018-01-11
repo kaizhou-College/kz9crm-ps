@@ -8,5 +8,11 @@
 				<result name="add_success" type="chain">change_query</result>
 				<result name="add_filed">/html/~sale/add.jsp</result>
 			</action>
+			<action name="cstlost_*" class="cstLostAction" method="{1}">
+				<result name="fenye">/html/~cust/lost/list.jsp</result>
+				<result name="updateid">/html/~cust/lost/confirm.jsp</result>
+				<result name="update_success" type="chain">cstlost_fenyequery</result>
+			</action>
 		</package>
+			
 	</struts>

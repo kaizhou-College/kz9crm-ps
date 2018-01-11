@@ -1,6 +1,5 @@
 <%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@include file="../comm.jsp"%>
-<script type="text/javascript" src="${basePath}/html/jquery/jquery-1.4.2.js">
+<%@include file="/comm/comm.jsp"%>
 <!--
 
 //-->

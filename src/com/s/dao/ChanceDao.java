@@ -5,7 +5,7 @@ import java.util.List;
 import com.s.entity.SalChance;
 
 public interface ChanceDao {
-	//新增
+	// 新增
 	public int save(SalChance chance);
 
 	public List query();
