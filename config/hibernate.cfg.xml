@@ -22,6 +22,7 @@
 	<mapping resource="com/kz/crm/entity/OrdersLine.hbm.xml" />
 	<mapping resource="com/kz/crm/entity/CstActivity.hbm.xml" />
 	<mapping resource="com/kz/crm/entity/Product.hbm.xml" />
+	<mapping resource="com/kz/crm/entity/CstService.hbm.xml" />
 
 
 </session-factory>

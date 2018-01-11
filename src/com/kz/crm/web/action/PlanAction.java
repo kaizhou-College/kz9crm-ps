@@ -1,4 +1,4 @@
-package com.kz.crm.wed.action;
+package com.kz.crm.web.action;
 
 import java.util.List;
 
