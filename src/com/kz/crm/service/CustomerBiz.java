@@ -3,6 +3,7 @@ package com.kz.crm.service;
 import java.util.List;
 
 import com.kz.crm.entity.CstCustomer;
+import com.kz.crm.entity.CustomerDimPaeam;
 
 public interface CustomerBiz {
 	List byPageCustomerDao(int page,int pageSize);//分页
@@ -10,4 +11,5 @@ public interface CustomerBiz {
 	void customerDelete(CstCustomer cus);
 	CstCustomer listSingle(CstCustomer cus);//查询单个
 	void customerUpdate(CstCustomer cus);//修改单个
+	List cutomerDimList(CustomerDimPaeam cdp);
 }

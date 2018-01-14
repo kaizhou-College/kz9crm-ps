@@ -17,6 +17,7 @@ public class SalChangeAction extends ActionSupport {
 	private List list;
 	@Autowired
 	private ChanceBiz cb;
+	
 	private Integer chcId;
 
 	// ��ѯ
@@ -30,6 +31,8 @@ public class SalChangeAction extends ActionSupport {
 	// �½�
 	public String insert() {
 		System.out.println("��������");
+		System.out.println("进入添加action");
+		System.out.println(chance);
 		System.out.println(chance.getChcCustName());
 		int res = cb.save(chance);
 		if (res > 1) {

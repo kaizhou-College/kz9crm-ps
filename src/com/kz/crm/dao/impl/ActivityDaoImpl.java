@@ -28,7 +28,7 @@ public class ActivityDaoImpl extends HibernateDaoSupport implements ActivityDao 
 		CstCustomer customer =(CstCustomer) session.get(CstCustomer.class,cus.getCustNo());
 		customer.getActivity().add(activity);
 		activity.setCustomer(customer);
-		
+		session.save(activity);
 	}
 
 	public CstActivity activityUpdateList(CstActivity activity) {

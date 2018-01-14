@@ -10,6 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.kz.crm.dao.PlanDao;
+import com.kz.crm.entity.CstCustomer;
 import com.kz.crm.entity.PlanDimList;
 import com.kz.crm.entity.SalChance;
 import com.kz.crm.entity.SalPlan;
@@ -56,13 +57,13 @@ public class PlanDaoImpl extends HibernateDaoSupport implements PlanDao {
 	
 	
 	
-	
 	public List byPageDim(PlanDimList pdl,int page,int pageSize ){
 		int max=(page-1)*pageSize;
 		Session session = this.getSession();
 		Criteria createCriteria = session.createCriteria(SalPlan.class);
 		createCriteria.setProjection(Projections.projectionList().add(Projections.property("salChance.chcId")));
 		List list3 = createCriteria.list();
+		
 		Criteria createCriteria1 = session.createCriteria(SalChance.class);
 		createCriteria1.add(Restrictions.in("chcId",list3));
 		
@@ -124,11 +125,37 @@ public class PlanDaoImpl extends HibernateDaoSupport implements PlanDao {
 	}
 	
 	public void planDelete(SalPlan salPaPlan){
-		
+		Session session = this.getSession();
+		SalPlan plan =(SalPlan) session.get(SalPlan.class,salPaPlan.getPlaId());
+		session.delete(plan);
 	}
 
-	public int planinsert(SalPlan salplan) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void planAdd(SalChance sc,SalPlan salplan) {
+		Session session = this.getSession();
+		SalChance chance =(SalChance) session.get(SalChance.class,sc.getChcId());
+		chance.getSalPlan().add(salplan);
+		salplan.setSalChance(chance);
 	}
+
+	public void planResultUpdate(SalPlan salPlan) {
+		Session session = this.getSession();
+		SalPlan plan =(SalPlan) session.get(SalPlan.class,salPlan.getPlaId());
+		if(salPlan.getPlaResult()!=null){
+			plan.setPlaResult(salPlan.getPlaResult());
+		}
+	}
+
+	public void planSuccessUpdate(SalChance sc) {
+		Session session = this.getSession();
+		SalChance plan =(SalChance) session.get(SalChance.class,sc.getChcId());
+		plan.setChcStatus(4);
+		CstCustomer customer=new CstCustomer();
+		customer.setCustNo(plan.getChcId().toString());
+		if(plan.getChcCustName()!=null){
+			customer.setCustName(plan.getChcCustName());
+		}
+		session.save(customer);
+	}
+
+	
 }

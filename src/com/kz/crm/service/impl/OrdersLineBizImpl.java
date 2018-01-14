@@ -11,6 +11,7 @@ import com.kz.crm.service.OrdersLineBiz;
 public class OrdersLineBizImpl implements OrdersLineBiz{
 	@Autowired
 	private OrdersLineDao old;
+	
 	public List queryOrdersLine() {
 		return old.queryOrdersLine();
 	}

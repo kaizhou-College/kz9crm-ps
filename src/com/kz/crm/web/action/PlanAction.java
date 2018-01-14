@@ -33,9 +33,39 @@ public class PlanAction {
 	private SalChance planList;//Chance对象
 	
 	
+	//修改   机会开发成功就添加到客户管理里面
+	public String planSuccess(){
+		System.out.println("进入action");
+		
+		planBiz.planSuccessUpdate(sc);
+		System.out.println("-------------");
+		return "planSuccess";
+	}
+	
+	//执行计划时的结果
+	public String planResult(){
+		planBiz.planResultUpdate(salplan);
+		return "planResult";
+	}
+	
+	//执行计划时显示
+	public String planExecuteList(){
+		planList = planBiz.planList(sc.getChcId());
+		return "planExecuteList";
+	}
 	
 	
+	//删除一个计划
+	public String planDelete(){
+		planBiz.planDelete(salplan);
+		return "planDelete";
+	}
 	
+	//添加计划
+	public String planAdd(){
+		planBiz.planAdd(sc, salplan);
+		return "planAdd";
+	}
 	//plan保存
 	public void  ajaxPlanUpdate(){
 		planBiz.planUpdate(salplan);
@@ -43,9 +73,7 @@ public class PlanAction {
 	
 	//正在开放中的机会显示
 	public String planListBeing(){
-		
 		planList = planBiz.planList(sc.getChcId());
-		
 		return "planListBeing";
 	}
 	
@@ -64,6 +92,7 @@ public class PlanAction {
 	
 	//plan分页查询
 	public String byPage(){
+		System.out.println("进入啦啦啦");
 		if(pdl==null){
 			pdl=new PlanDimList(" "," "," ");
 		}
@@ -81,7 +110,7 @@ public class PlanAction {
 		pageMax=((max-1)/pageSize)+1;
 		
 		byPage = planBiz.byPage(page, pageSize);
-		return "bypage";
+		return "byPage";
 	}
 	
 	
@@ -89,9 +118,7 @@ public class PlanAction {
 	//plan高级查询
 	public String  ajaxPlanDim(){
 		if(pdl==null){
-			System.out.println("sdfusefns m j n ");
-			
-			pdl=new PlanDimList(" "," "," ");
+			pdl=new PlanDimList();
 		}
 		
 		pageUrl="plan_ajaxPlanDim";//給页面赋值

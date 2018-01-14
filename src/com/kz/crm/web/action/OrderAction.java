@@ -30,13 +30,8 @@ public class OrderAction {
 	}
 	
 	public String OrderLineList(){
-		System.out.println("在acrion中");
-		System.out.println(order);
 		orderLineLit = orderBiz.orderLineLit(order);
-		System.out.println("action查询完毕");
-		System.out.println("-=-=-=-"+order);
 		order = orderBiz.orderList(order);
-		System.out.println("成功跳出action");
 		return "OrderLineList";
 	}
 	

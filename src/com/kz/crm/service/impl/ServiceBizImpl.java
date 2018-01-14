@@ -1,5 +1,6 @@
 package com.kz.crm.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kz.crm.dao.ServiceDao;
 import com.kz.crm.entity.CstService;
+import com.kz.crm.entity.ServiceDimParam;
 import com.kz.crm.service.ServiceBiz;
 @Service
 public class ServiceBizImpl implements ServiceBiz {
@@ -40,6 +42,14 @@ public class ServiceBizImpl implements ServiceBiz {
 
 	public void serviceDetailUpdate(CstService service) {
 		serviceDao.serviceDetailUpdate(service);
+	}
+
+	public List serviceDimList(ServiceDimParam sdp,int page,int pageSize) {
+		return serviceDao.serviceDimList(sdp,page,pageSize);
+	}
+
+	public Long serviceDimListCount(ServiceDimParam sdp) {
+		return serviceDao.serviceDimListCount(sdp);
 	}
 	
 	

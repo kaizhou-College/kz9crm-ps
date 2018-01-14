@@ -9,17 +9,16 @@ import com.kz.crm.dao.ChanceDao;
 import com.kz.crm.entity.SalChance;
 
 public class ChaceDaoImpl extends HibernateDaoSupport implements ChanceDao {
-	// ÐÂÔö
+	// ï¿½ï¿½ï¿½ï¿½
 	public int save(SalChance chance) {
 		Session session = this.getSession();
 		return (Integer) session.save(chance);
 	}
 
-	// ²éÑ¯
+	// ï¿½ï¿½Ñ¯
 	public List query() {
 		Session session = this.getSession();
-		List<SalChance> list = (List) session.createCriteria(SalChance.class)
-				.list();
+		List<SalChance> list = (List) session.createCriteria(SalChance.class).list();
 		return list;
 	}
 

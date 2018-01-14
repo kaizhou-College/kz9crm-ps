@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.kz.crm.dao.CustomerDao;
 import com.kz.crm.entity.CstCustomer;
+import com.kz.crm.entity.CustomerDimPaeam;
 import com.kz.crm.service.CustomerBiz;
 @Service
 public class CustomerBizImpl implements CustomerBiz {
@@ -37,6 +38,10 @@ public class CustomerBizImpl implements CustomerBiz {
 
 	public void customerUpdate(CstCustomer cus) {
 		customerDao.customerUpdate(cus);
+	}
+
+	public List cutomerDimList(CustomerDimPaeam cdp) {
+		return customerDao.cutomerDimList(cdp);
 	}
 
 	

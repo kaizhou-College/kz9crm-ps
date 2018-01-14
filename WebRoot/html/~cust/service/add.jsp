@@ -23,7 +23,7 @@
 		<th>服务类型</th>
 		<td>
 			<select name="service.svrType"  >
-				<option value="">请选择...</option>
+				<option value="未选择">请选择...</option>
 				<option value="咨询" >咨询</option>
 				<option value="投诉">投诉</option>
 				<option value="建议">建议</option>
@@ -59,7 +59,7 @@
 		<th>分配给</th>
 		<td>
 			<select name="service.svrDueTo"  >
-				<option value="">请选择...</option>
+				<option value="未选择">请选择...</option>
 				<option  value="小明">小明</option>
 				<option  value="旺财">旺财</option>
 				<option  value="球球">球球</option>
@@ -91,7 +91,7 @@
 		<th>满意度</th>
 		<td>
 			<select name="service.svrSatisfy"  >
-				<option value="">请选择...</option>
+				<option value="未选择">请选择...</option>
 				<option  value="5">☆☆☆☆☆</option>
 				<option value="4">☆☆☆☆</option>
 				<option value="3">☆☆☆</option>

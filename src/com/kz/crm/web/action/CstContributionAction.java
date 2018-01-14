@@ -23,36 +23,34 @@ public class CstContributionAction {
 	public String query(){
 		list = olb.queryOrdersLine();
 		System.out.println("进入查询"+list);
-		for (int i = 0; i < list.size(); i++) {
-			contributionName = olb.queryById(list.get(i).getOddOrderId());
-		}
-		System.out.println("客户名称==="+contributionName);
 		return "query_success";
 	}
-	
-	
 	public OrdersLine getOrdersLine() {
 		return ordersLine;
 	}
 	public void setOrdersLine(OrdersLine ordersLine) {
 		this.ordersLine = ordersLine;
 	}
-
-
-	public List getList() {
+	public List<OrdersLine> getList() {
 		return list;
 	}
-	public void setList(List list) {
+	public void setList(List<OrdersLine> list) {
 		this.list = list;
 	}
-
-
 	public String getContributionName() {
 		return contributionName;
 	}
 	public void setContributionName(String contributionName) {
 		this.contributionName = contributionName;
 	}
+	public OrdersLineBiz getOlb() {
+		return olb;
+	}
+	public void setOlb(OrdersLineBiz olb) {
+		this.olb = olb;
+	}
+	
+	
 
 
 	

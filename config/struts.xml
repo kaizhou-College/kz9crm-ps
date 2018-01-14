@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-
-   <!DOCTYPE struts PUBLIC
-	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-	"http://struts.apache.org/dtds/struts-2.3.dtd">
-	<struts>
-		<package name="crms-default" namespace="/html" extends="struts-default">
-		<!-- 机会表 -->
-			<action name="salchance_*" class="salChangeAction" method="{1}">
-=======
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
@@ -16,7 +6,7 @@
 	<package name="kzdefault" namespace="/html" extends="struts-default">
 		<!-- x销售管理 -->
 		<action name="plan_*" method="{1}" class="planAction">
-			<result name="bypage">
+			<result name="byPage">
 				/html/~sale/dev.jsp
 			</result>
 			<result name="ajaxPlanDim">
@@ -31,12 +21,31 @@
 			<result name="ajaxPlanUpdate">
 				/html/~sale/dev_plan.jsp
 			</result>
+			<result name="planAdd" type="chain"> 
+				plan_planListBeing
+			</result>
+			<result name="planDelete" type="chain"> 
+				plan_planListBeing
+			</result>
+			<result name="planExecuteList">
+				/html/~sale/dev_execute.jsp
+			</result>
+			<result name="planResult" type="chain">
+				plan_planExecuteList 
+			</result>
+			<result name="planSuccess" type="chain">
+				plan_byPage
+			</result>
 		</action>
 		
 		<!-- 客户管理 -->
 		
 		
 		<action name="customer_*" class="cstCustomerAction" method="{1}">
+			<!-- 高级查询 -->
+			<result name="customerDimList">
+				/html/~rept/~cust/cust/list.jsp
+			</result>
 			<result name="customerList">
 				/html/~rept/~cust/cust/list.jsp
 			</result>
@@ -49,6 +58,7 @@
 			<result name="customerUpdate" type="redirectAction">
 				customer_customerList
 			</result>
+			
 		</action>
 		
 		<action name="linkman_*" method="{1}" class="linkmanAction">
@@ -101,6 +111,20 @@
 			</result>
 		</action>
 		<action name="service_*" method="{1}" class="serviceAction" >
+			<!-- 四个高级查询的联合 -->
+			<result name="serviceDimList-deal">
+				/html/~cust/service/deal.jsp
+			</result>
+			<result name="serviceDimList-feedback">
+				/html/~cust/service/feedback.jsp
+			</result>
+			<result name="serviceDimList-dispatch">
+				/html/~cust/service/dispatch.jsp
+			</result>
+			<result name="serviceDimList-arch">
+				/html/~cust/service/arch.jsp
+			</result>
+			
 			<result name="serviceAddTo" >
 			   	/html/~cust/service/add.jsp
 			</result>
@@ -146,25 +170,64 @@
 			</result>
 		</action>
 		
+		<!-- Dict -->
+		<action name="dictAction_*" method="{1}" class="dictAction">
+			<result name="byPageDict">
+				/html/~basd/dict.jsp
+			</result>
+			<result name="dictDimList">
+				/html/~basd/dict.jsp
+			</result>
+			<result name="dictList" > 
+				/html/~basd/dict_edit.jsp
+			</result>
+			<result name="dictUpdate" type="chain">
+				dictAction_byPageDict
+			</result>
+			<result name="dictInsertTo"  >
+				/html/~basd/dict_add.jsp
+			</result>
+			<result name="dictInsert" type="chain">
+				dictAction_byPageDict
+			</result>
+			<result name="dictDelete" type="chain" >
+				dictAction_byPageDict
+			</result>
+		</action>
+		
+		<!-- Product -->
+		<action name="product_*" class="productAction" method="{1}" >
+			<result name="productByPage">
+				/html/~basd/product.jsp
+			</result>
+			<result name="productDimList">
+				/html/~basd/product.jsp
+			</result>
+		</action>
+		<!-- Storage -->
+		<action name="storage_*" method="{1}" class="storageAction">
+			<result name="byPageTorage" >
+				/html/~basd/storage.jsp
+			</result>
+			<result name="storageDim" >
+				/html/~basd/storage.jsp
+			</result>
+		</action>
 		
 		
 		<!-- 舒 -->
 		<action name="salchance_*" class="salChangeAction" method="{1}">
->>>>>>> 8e48ce42622848d8d520e21bd50d57426229b59a
 				<result name="query_success">/html/~sale/list.jsp</result>
 				<result name="add_success" type="chain">change_query</result>
 				<result name="add_filed">/html/~sale/add.jsp</result>
 			</action>
-<<<<<<< HEAD
 			<!-- 客户流失表 -->
-=======
->>>>>>> 8e48ce42622848d8d520e21bd50d57426229b59a
+
 			<action name="cstlost_*" class="cstLostAction" method="{1}">
 				<result name="fenye">/html/~cust/lost/list.jsp</result>
 				<result name="updateid">/html/~cust/lost/confirm.jsp</result>
 				<result name="update_success" type="chain">cstlost_fenyequery</result>
 			</action>
-<<<<<<< HEAD
 			<!-- 客户贡献分析 -->
 			<action name="ordersline_*" class="cstContributionAction" method="{1}">
 				<result name="query_success">/html/~rept/contr.jsp</result>
@@ -174,8 +237,4 @@
 		</package>
 			
 	</struts>
-=======
-	</package>
-</struts>
->>>>>>> 8e48ce42622848d8d520e21bd50d57426229b59a
 

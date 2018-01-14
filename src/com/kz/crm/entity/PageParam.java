@@ -97,4 +97,12 @@ public class PageParam {
 	}
 
 
+	@Override
+	public String toString() {
+		return "PageParam [count=" + count + ", countPlan=" + countPlan
+				+ ", pageIndex=" + pageIndex + ", pageMax=" + pageMax
+				+ ", pageSize=" + pageSize + ", pageUrl=" + pageUrl + "]";
+	}
+
+
 }

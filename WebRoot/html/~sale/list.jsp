@@ -15,6 +15,7 @@
 	<button class="common_button" onclick="to('${basePath}html/~sale/add.jsp');">新建</button>  
 	<button class="common_button" onclick="reload();">查询</button> 
 	</div>
+	<s:debug></s:debug>
 <table class="query_form_table">
 	<tr>
 		<th>客户名称</th>

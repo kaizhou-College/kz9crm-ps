@@ -38,7 +38,7 @@
 	<tr>
 		<th>详细信息</th>
 		<td colspan="3">
-			<textarea cols="50" rows="6" name="activity.atvDesc">${activity.atvDesc}</textarea>
+			<textarea cols="50" rows="6" >${activity.atvDesc}</textarea>
 		</td>
 	</tr>
 </table>

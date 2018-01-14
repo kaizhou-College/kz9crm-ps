@@ -99,7 +99,16 @@
 	<bean id="serviceDao" class="com.kz.crm.dao.impl.ServiceDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	<bean id="dictDao" class="com.kz.crm.dao.impl.DictDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="productDao" class="com.kz.crm.dao.impl.ProductDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="storageDao" class="com.kz.crm.dao.impl.StorageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<bean id="dao" class="com.kz.crm.dao.impl.ChaceDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

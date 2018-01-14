@@ -1,5 +1,8 @@
 package com.kz.crm.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Product entity. @author MyEclipse Persistence Tools
  */
@@ -15,6 +18,8 @@ public class Product implements java.io.Serializable {
 	private String prodUnit;
 	private Long prodPrice;
 	private String prodMemo;
+	private Set<Storage> storages=new HashSet<Storage>();
+	
 	
 	
 	//private OrdersLine orderLine;
@@ -29,6 +34,14 @@ public class Product implements java.io.Serializable {
 //	public void setOrderLine(OrdersLine orderLine) {
 //		this.orderLine = orderLine;
 //	}
+
+	public Set<Storage> getStorages() {
+		return storages;
+	}
+
+	public void setStorages(Set<Storage> storages) {
+		this.storages = storages;
+	}
 
 	/** default constructor */
 	public Product() {

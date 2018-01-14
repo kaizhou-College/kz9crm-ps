@@ -19,7 +19,6 @@
 	<button class="common_button" onclick="reload();">查询</button> 
 </div>
 
-
 <form id="from1">
 <table class="query_form_table">
 	<tr>
@@ -54,9 +53,6 @@
 	
 <tbody id="chance_list">	
 	<jsp:include page="listDao.jsp"></jsp:include>
-
-	
-	
 </tbody>	
 </table>
 	<script type="text/javascript">

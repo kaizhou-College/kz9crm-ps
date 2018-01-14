@@ -10,41 +10,36 @@
 <script type="text/javascript" src="${basePath}/html/jquery/jquery-1.4.2.min.js"></script>
 </head>
 <body>
-
 <div class="page_title">客户服务管理 &gt; 服务处理</div>
+<form action="service_serviceDimList" method="post">
+<input type="hidden" name="url" value="serviceDimList-deal">
 <div class="button_bar">
 	<button class="common_button" onclick="help('');">帮助</button>
-	<button class="common_button" onclick="reload();">查询</button>  
+	<input type="submit" class="common_button" value="查询" />
 </div>
-<s:debug></s:debug>
 <table class="query_form_table">
 	<tr>
-		<th height="28">客户</th>
-		<td><input /></td>
+		<th height="28" >客户</th>
+		<td><input name="sdp.svrCustName" value="${sdp.svrCustName}" /></td>
 		<th height="28">概要</th>
-		<td><input /></td>
+		<td><input name="sdp.svrTitle" value="${sdp.svrTitle}"  /></td>
 		<th height="28">服务类型</th>
 		<td>
-			<select name="D1">
-				<option>全部</option>
-				<option>咨询</option>
-				<option>建议</option>
-				<option>投诉</option>
-			</select>
+			<s:select list="{'全部','咨询','建议','投诉'}"  name="sdp.svrType"  value="sdp.svrType"></s:select>
 		</td>
 	</tr>
 	<tr>
 		<th height="32">创建日期</th>
 		<td colspan="3">
-			<input name="T2" size="10" /> - <input name="T1" size="10" /></td>
+			<input  name="sdp.svrCreateDate" value="${sdp.svrCreateDate}"  size="10" /> - 
+			<input  name="sdp.svrEndDate" value="${sdp.svrEndDate}"  size="10" /></td>
 		<th height="32">状态</th>
 		<td>
-			<select name="D1">
-				<option selected>已分配</option>
-			</select>
+			<s:select list="{'全部','新建','已处理','已归档'}" name="sdp.svrStatus" value="sdp.svrStatus"></s:select>
 		</td>
 	</tr>
 </table>
+</form>
 <br />
 <table class="data_list_table">
 	<tr>
@@ -69,33 +64,28 @@
 			<s:property value="#list.svrCreateDate" />
 		</td>
 		<td class="list_data_op">
-						
+			
 			<img onmousedown="serviceDetailList('${list.svrId}')"  title="处理" src="${basePath}/html/images/bt_deal.gif" class="op_button" />  
 			
 		</td>
 	</tr>
 	</s:iterator>
-	
-	
 	<tr>
 		<th colspan="7" class="pager">
 <div class="pager">
-	<pxfy:fy countPlan="${byPage.countPlan}" pageIndex="${byPage.pageIndex}" pageSize="${byPage.pageSize}" pageMax="${byPage.pageMax}" pageUrl="${byPage.pageUrl}"></pxfy:fy>
+	<pageDim:fy url="${url}" svrCreateDate="${sdp.svrCreateDate}" svrCustName="${sdp.svrCustName}" svrEndDate="${sdp.svrEndDate}" svrStatus="${sdp.svrStatus}" svrTitle="${sdp.svrTitle}" svrType="${sdp.svrType}" countPlan="${byPage.countPlan}" pageIndex="${byPage.pageIndex}" pageSize="${byPage.pageSize}" pageMax="${byPage.pageMax}" pageUrl="${byPage.pageUrl}"></pageDim:fy>
 </div>
 		</th>
 	</tr>
-</table>
+</table><s:debug></s:debug>
 <script type="text/javascript">
 	function formSkip(){
 		var pageIndex=document.getElementById("pageIndex").value;
-		location.href="${byPage.pageUrl}?byPage.pageIndex="+pageIndex;
+		location.href="${byPage.pageUrl}?byPage.pageIndex="+pageIndex+"&sdp.svrCustName=${sdp.svrCustName}&sdp.svrTitle=${sdp.svrTitle}&sdp.svrType=${sdp.svrType}&sdp.svrCreateDate=${sdp.svrCreateDate}&sdp.svrEndDate=${sdp.svrEndDate}&sdp.svrStatus=${sdp.svrStatus}&url=serviceDimList-deal";
 	}
 	function serviceDetailList(id){
 		location.href="service_serviceDetailList?service.svrId="+id;
 	}
-	
-	
-	
 </script>
 </body>
 </html>

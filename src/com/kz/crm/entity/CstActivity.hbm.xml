@@ -8,7 +8,9 @@
     <class   name="com.kz.crm.entity.CstActivity" table="CST_ACTIVITY" >
         <id name="atvId" type="java.lang.Long">
             <column name="ATV_ID" precision="22" scale="0" />
-            <generator class="assigned" />
+            <generator class="sequence" >
+            	<param name="sequence">SEQ_ACTIVITY</param>
+            </generator>
         </id>
        <!-- <property name="atvCustNo" type="java.lang.String">
             <column name="ATV_CUST_NO" length="17" not-null="true" />

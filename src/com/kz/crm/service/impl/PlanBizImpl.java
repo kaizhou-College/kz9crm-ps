@@ -46,5 +46,21 @@ public class PlanBizImpl implements PlanBiz {
 	public void planUpdate(SalPlan salPlan) {
 		planDao.planUpdate(salPlan);
 	}
+
+	public void planAdd(SalChance sc, SalPlan salplan) {
+		planDao.planAdd(sc, salplan);
+	}
+
+	public void planDelete(SalPlan salPlan) {
+		planDao.planDelete(salPlan);
+	}
+
+	public void planResultUpdate(SalPlan salPlan) {
+		planDao.planResultUpdate(salPlan);
+	}
+
+	public void planSuccessUpdate(SalChance sc) {
+		planDao.planSuccessUpdate(sc);
+	}
 	
 }

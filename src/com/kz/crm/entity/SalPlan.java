@@ -53,6 +53,12 @@ public class SalPlan implements java.io.Serializable {
 		return this.plaDate;
 	}
 
+	@Override
+	public String toString() {
+		return "SalPlan [plaDate=" + plaDate + ", plaId=" + plaId
+				+ ", plaResult=" + plaResult + ", plaTodo=" + plaTodo + "]";
+	}
+
 	public SalPlan(Long plaId, Date plaDate, String plaTodo, String plaResult) {
 		super();
 		this.plaId = plaId;

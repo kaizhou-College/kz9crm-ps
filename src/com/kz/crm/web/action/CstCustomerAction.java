@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.kz.crm.entity.CustomerDimPaeam;
 import com.kz.crm.entity.PageParam;
 import com.kz.crm.entity.CstCustomer;
 import com.kz.crm.service.CustomerBiz;
@@ -30,10 +31,20 @@ public class CstCustomerAction {
 	private CstCustomer cus;
 	
 	
+	//高级查询时的数据
+	private CustomerDimPaeam cdp;
+
+
+	//高级程序、
+	public String customerDimList(){
+		System.out.println("进入高级查询");
+		System.out.println(cdp);
+		byPageCustomerDao=coustomerBiz.cutomerDimList(cdp);
+		return "customerDimList";
+	}
 	
 	//编辑
 	public String customerUpdate(){
-		System.out.println("进来了");
 		System.out.println(cus);
 		coustomerBiz.customerUpdate(cus);
 		return "customerUpdate";
@@ -57,7 +68,6 @@ public class CstCustomerAction {
 	
 	//分頁
 	public String customerList(){
-		System.out.println("贱人了哈哈哈--");
 		//如果byPage没有初始化就给它设置一个当前页面
 		if(byPage==null){
 			byPage=new PageParam();
@@ -106,6 +116,14 @@ public class CstCustomerAction {
 
 	public void setCus(CstCustomer cus) {
 		this.cus = cus;
+	}
+
+	public CustomerDimPaeam getCdp() {
+		return cdp;
+	}
+
+	public void setCdp(CustomerDimPaeam cdp) {
+		this.cdp = cdp;
 	}
 
 	

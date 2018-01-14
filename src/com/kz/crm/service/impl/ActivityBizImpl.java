@@ -13,7 +13,6 @@ import com.kz.crm.service.ActivityBiz;
 
 @Service
 public class ActivityBizImpl implements ActivityBiz{
-	
 	@Autowired
 	private ActivityDao activityDao;
 	

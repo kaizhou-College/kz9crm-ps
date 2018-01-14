@@ -42,7 +42,7 @@
 	<s:iterator value="list" var="line">
 	<tr>
 		<td class="list_data_number"><s:property value="#line.oddId"/> </td>
-		<td class="list_data_ltext"><s:property value="contributionName"/></td>
+		<td class="list_data_ltext"><s:property value="#line.contributionName"/></td>
 		<td class="list_data_number"><s:property value="#line.oddPrice"/></td>
 	</tr>
 	</s:iterator>

@@ -26,9 +26,6 @@ public class ActivityAction {
 	
 	
 	public String activityDelete(){
-		System.out.println("--------------");
-		System.out.println(cus);
-		System.out.println(activity);
 		activityBiz.activityDelete(cus, activity);
 		
 		return "activityDelete";
@@ -54,7 +51,6 @@ public class ActivityAction {
 		return "activityList";
 	}
 	public String activityAddTo(){
-		System.out.println("进来了");
 		
 		return "activityAddTo";
 	}

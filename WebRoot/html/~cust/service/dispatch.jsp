@@ -12,40 +12,35 @@
 <body>
 
 <div class="page_title">客户服务管理 > 服务分配</div>
+<form action="service_serviceDimList" method="post">
+<input type="hidden" name="url" value="serviceDimList-dispatch">
 <div class="button_bar">
 	<button class="common_button" onclick="help('');">帮助</button>
-	<button class="common_button" onclick="reload();">查询</button>  
+	<input type="submit" class="common_button" value="查询" />
 </div>
-
-
-<table class="query_form_table" height="53">
+<table class="query_form_table">
 	<tr>
-		<th height="28">客户</th>
-		<td><input /></td>
+		<th height="28" >客户</th>
+		<td><input name="sdp.svrCustName" value="${sdp.svrCustName}" /></td>
 		<th height="28">概要</th>
-		<td><input /></td>
+		<td><input name="sdp.svrTitle" value="${sdp.svrTitle}"  /></td>
 		<th height="28">服务类型</th>
 		<td>
-			<select name="D1">
-				<option>全部</option>
-				<option>咨询</option>
-				<option>建议</option>
-				<option>投诉</option>
-			</select>
+			<s:select list="{'全部','咨询','建议','投诉'}"  name="sdp.svrType"  value="sdp.svrType"></s:select>
 		</td>
 	</tr>
 	<tr>
-		<th height="22">创建日期</th>
+		<th height="32">创建日期</th>
 		<td colspan="3">
-			<input name="T2" size="10" /> - <input name="T1" size="10" /></td>
-		<th height="22">状态</th>
+			<input  name="sdp.svrCreateDate" value="${sdp.svrCreateDate}"  size="10" /> - 
+			<input  name="sdp.svrEndDate" value="${sdp.svrEndDate}"  size="10" /></td>
+		<th height="32">状态</th>
 		<td>
-			<select name="D1">
-				<option selected>新创建</option>
-			</select>
+			<s:select list="{'全部','新建','已处理','已归档'}" name="sdp.svrStatus" value="sdp.svrStatus"></s:select>
 		</td>
 	</tr>
 </table>
+</form>
 <br />
 
 <table class="data_list_table">
@@ -85,7 +80,7 @@
 	<tr>
 		<th colspan="8" class="pager">
 <div class="pager">
-	<pxfy:fy countPlan="${byPage.count}" pageIndex="${byPage.pageIndex}" pageSize="${byPage.pageSize}" pageMax="${byPage.pageMax}" pageUrl="${byPage.pageUrl}"></pxfy:fy>
+	<pageDim:fy url="${url}" svrCreateDate="${sdp.svrCreateDate}" svrCustName="${sdp.svrCustName}" svrEndDate="${sdp.svrEndDate}" svrStatus="${sdp.svrStatus}" svrTitle="${sdp.svrTitle}" svrType="${sdp.svrType}" countPlan="${byPage.countPlan}" pageIndex="${byPage.pageIndex}" pageSize="${byPage.pageSize}" pageMax="${byPage.pageMax}" pageUrl="${byPage.pageUrl}"></pageDim:fy>
 </div>
 		</th>
 	</tr>
@@ -93,10 +88,10 @@
 
 <script type="text/javascript">
 
-	function serviceDispatchDelete(id){
-		location.href="service_serviceDispatchDelete?service.svrId="+id;
+		function formSkip(){
+		var pageIndex=document.getElementById("pageIndex").value;
+		location.href="${byPage.pageUrl}?byPage.pageIndex="+pageIndex+"&sdp.svrCustName=${sdp.svrCustName}&sdp.svrTitle=${sdp.svrTitle}&sdp.svrType=${sdp.svrType}&sdp.svrCreateDate=${sdp.svrCreateDate}&sdp.svrEndDate=${sdp.svrEndDate}&sdp.svrStatus=${sdp.svrStatus}&url=serviceDimList-deal";
 	}
-	
 	function formSkip(){
 		var pageIndex=document.getElementById("pageIndex").value;
 		location.href="${byPage.pageUrl}?byPage.pageIndex="+pageIndex;

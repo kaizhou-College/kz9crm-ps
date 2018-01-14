@@ -8,7 +8,9 @@
     <class name="com.kz.crm.entity.CstService" table="CST_SERVICE" schema="CRM">
         <id name="svrId" type="java.lang.Long">
             <column name="SVR_ID" precision="22" scale="0" />
-            <generator class="assigned" />
+            <generator class="sequence" >
+            	<param name="sequence">SEQ_SERVICE</param>
+            </generator>
         </id>
         <property name="svrType" type="java.lang.String">
             <column name="SVR_TYPE" length="40" not-null="true" />

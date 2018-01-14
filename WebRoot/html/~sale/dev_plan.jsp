@@ -72,11 +72,11 @@
 	</tr>
 	<s:iterator value="planList.salPlan" var="list">
 		<tr>
-			<td class="list_data_text"><s:property value="#list.plaDate"/> </td>
+			<td class="list_data_text">22<s:property value="#list.plaDate"/> </td>
 			<td class="list_data_ltext">
 				<input size="50" id="plan_doto" value="<s:property value='#list.plaTodo'/> " name="T1" />
 				<button class="common_button" onmousedown="ajaxPlanUpdate(<s:property value='#list.plaId'/>)">保存</button>
-				<button class="common_button" onclick="del('');">删除</button>
+				<button class="common_button" onmousedown="planDelete('${list.plaId}','${planList.chcId}')" >删除</button>
 			</td>
 		</tr>
 	</s:iterator>
@@ -84,13 +84,24 @@
 <table class="query_form_table" id="table2">
 	<tr>
 		<th>日期</th>
-		<td><input /><span class="red_star">*</span></td>
+		<td><input name="plaDate" id="planDate"/><span class="red_star">*</span></td>
 		<th>计划项</th>
 		<td>
-			<input size="50" name="T2" /><span class="red_star">*</span>
-			<button class="common_button" onclick="add('dev_plan.html');">保存</button>
+			<input size="50" name="T2" id="T2" /><span class="red_star">*</span>
+			<button class="common_button" onmousedown="planAdd('${planList.chcId}')">保存</button>
 		</td>
 	</tr>
 </table>
+<script type="text/javascript">
+	setCurTime('plaDate');
+	function planAdd(id){
+		location.href="plan_planAdd?sc.chcId="+id+"&salplan.plaDate="+$('#planDate').val()+"&salplan.plaTodo="+$('#T2').val();
+	}
+	function planDelete(id,id1){
+		location.href="plan_planDelete?salplan.plaId="+id+"&sc.chcId="+id1;
+	}
+</script>
+
+
 </body>
 </html>

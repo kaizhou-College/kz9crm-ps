@@ -14,5 +14,7 @@ public interface PlanDao {
 	SalChance planList(Long id);
 	void planUpdate(SalPlan salPlan);
 	void planDelete(SalPlan salPlan);
-	int planinsert(SalPlan salplan);
+	void planAdd(SalChance sc,SalPlan salplan);
+	void planResultUpdate(SalPlan salPlan);
+	void planSuccessUpdate(SalChance sc);
 }

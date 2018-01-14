@@ -28,8 +28,8 @@
 		<td><input name="linkman.lkmName" /><span class="red_star">*</span></td>
 		<th>性别</th>
 		<td>
-			<input type="radio" name="linkman.lkmSex" checked />男
-			<input type="radio" name="linkman.lkmSex" />女
+			<input type="radio" name="linkman.lkmSex" checked value="男" />男
+			<input type="radio" name="linkman.lkmSex"  value="女"/>女
 		</td>
 	</tr>
 	<tr>

@@ -1,5 +1,6 @@
 package com.kz.crm.web.action;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 
 import com.kz.crm.entity.PageParam;
 import com.kz.crm.entity.CstService;
+import com.kz.crm.entity.ServiceDimParam;
 import com.kz.crm.service.ServiceBiz;
 
 @Controller
@@ -18,6 +20,46 @@ public class ServiceAction {
 	private ServiceBiz serviceBiz;
 	
 	private CstService service;
+	
+	
+	public PageParam byPage;
+	public static final int SERVICE_PAGE_INDEX=1;
+	public static final int SERVICE_PAGE_SIZE=3;
+	private List serviceByPage;
+
+	//搞错查询的数据
+	private ServiceDimParam sdp;
+	//高级查询是的路劲
+	private String url;
+	//四个高级查询的联合
+	public String serviceDimList(){
+		if(byPage==null){
+			byPage=new PageParam();
+			byPage.setPageIndex(SERVICE_PAGE_INDEX);
+		}
+		byPage.setPageUrl("service_serviceDimList");//设置分页的路径
+		byPage.setPageSize(SERVICE_PAGE_SIZE);
+		//求这表中所有数据的条数
+		byPage.setCountPlan(serviceBiz.serviceDimListCount(sdp));
+		//求一个有都是页
+		byPage.setPageMax((new Long(byPage.getCountPlan()).intValue()-1)/byPage.getPageSize()+1);
+		
+		serviceByPage=serviceBiz.serviceDimList(sdp,byPage.getPageIndex(),byPage.getPageSize());
+		System.out.println("-----------------");
+		System.out.println("byPage.setCountPlan(serviceBiz.serviceDimListCount(sdp));=========="+serviceBiz.serviceDimListCount(sdp));
+		System.out.println("-----------------");
+		if(url.equals("serviceDimList-deal")){
+			return "serviceDimList-deal";
+		}else if(url.endsWith("serviceDimList-feedback")){
+			return "serviceDimList-feedback";
+		}else if(url.endsWith("serviceDimList-dispatch")){
+			return "serviceDimList-dispatch";
+		}else if(url.endsWith("serviceDimList-arch")){
+			return "serviceDimList-arch";
+		}
+		return "ERROR";
+	}
+	
 	
 	public String serviceAddTo(){
 		service=new CstService();
@@ -34,12 +76,6 @@ public class ServiceAction {
 		serviceBiz.serviceAdd(service);
 		return "serviceAdd";
 	}
-	
-	public PageParam byPage;
-	public static final int SERVICE_PAGE_INDEX=1;
-	public static final int SERVICE_PAGE_SIZE=3;
-	private List serviceByPage;
-
 	//服务归档的显示
 	public String serviceArchlList(){
 		service = serviceBiz.serviceDetailList(service);
@@ -101,6 +137,7 @@ public class ServiceAction {
 		return "serviceDueToAjax";
 	}
 	//服务处理的分页
+	@SuppressWarnings("deprecation")
 	public String serviceDisposeByPage(){
 		if(byPage==null){
 			byPage=new PageParam();
@@ -120,8 +157,6 @@ public class ServiceAction {
 	
 	//服务处理的修改
 	public String serviceDetailUpdate(){
-		System.out.println("jacoanck-=-=-=11111111111111111111111111-=-=-");
-		System.out.println(service);
 		serviceBiz.serviceDetailUpdate(service);
 		return "serviceDetailUpdate";
 	}
@@ -176,6 +211,30 @@ public class ServiceAction {
 	public void setByPage(PageParam byPage) {
 		this.byPage = byPage;
 	}
+
+
+	public ServiceDimParam getSdp() {
+		return sdp;
+	}
+
+
+	public void setSdp(ServiceDimParam sdp) {
+		this.sdp = sdp;
+	}
+
+
+	public String getUrl() {
+		return url;
+	}
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
+
+	
 	
 	
 }

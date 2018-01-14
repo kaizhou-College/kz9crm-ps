@@ -8,13 +8,43 @@ import java.util.Set;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.kz.crm.dao.CustomerDao;
 import com.kz.crm.entity.CstCustomer;
+import com.kz.crm.entity.CustomerDimPaeam;
 
 public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao {
 
+	public boolean isNotNuhll(String str){
+		boolean num=false;
+		if(str.trim().length()>0){
+			num=true;
+		}
+		return num;
+	}
+	
+	//高级查询
+	public List cutomerDimList(CustomerDimPaeam cdp) {
+		Session session = this.getSession();
+		Criteria createCriteria = session.createCriteria(CstCustomer.class);
+		if(isNotNuhll(cdp.getId())){
+			createCriteria.add(Restrictions.like("custNo","%"+cdp.getId()+"%"));
+		}
+		if(isNotNuhll(cdp.getName())){
+			createCriteria.add(Restrictions.like("custName","%"+cdp.getName()+"%"));
+		}
+		if(isNotNuhll(cdp.getRegion())&&!cdp.getRegion().equals("全部")){
+			createCriteria.add(Restrictions.like("custRegion","%"+cdp.getRegion()+"%"));
+		}
+		if(isNotNuhll(cdp.getLevel())&&!cdp.getLevel().equals("0")){
+			createCriteria.add(Restrictions.like("custLevelLabel","%"+cdp.getLevel()+"%"));
+		}
+		return createCriteria.list();
+	}
+	
+	
 	public List byPageCustomerDao(int page, int pageSize) {
 		Session session = this.getSession();
 		
@@ -58,6 +88,9 @@ public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao 
 		Session session = this.getSession();
 		session.update(cus);
 	}
+
+
+	
 
 
 

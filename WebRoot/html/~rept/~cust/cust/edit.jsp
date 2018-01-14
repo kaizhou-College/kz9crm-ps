@@ -39,21 +39,14 @@
 			<span class="red_star">*</span></td>
 		<th>客户经理</th>
 		<td>
-			
-			<select  name="cus.custManagerId">
-				<option value="1" >小明</option>
-				<option  value="2">旺财</option>
-				<option  value="3">球球</option>
-				<option  value="4">孙小美</option>
-			</select>
-			
+			<s:select list="#{1:'小明',2:'旺财',3:'旺财',4:'孙小美'}" name="cus.custManagerId" value="%{cus.custManagerId}"></s:select>
 			<span class="red_star">*</span>
 		</td>
 	</tr>	
 	<tr>
 		<th>客户等级</th>
 		<td>
-		<s:select  name="cus.custLevel" list="{'战略合作伙伴','合作伙伴','大客户','重点开发客户','普通客户'}"></s:select>
+		<s:select value="%{cus.custLevelLabel}" name="cus.custLevelLabel" list="{'战略合作伙伴','合作伙伴','大客户','重点开发客户','普通客户'}"></s:select>
 		<span class="red_star">*</span>
 		</td>
 		<th>　</th>
@@ -62,21 +55,13 @@
 	<tr>
 		<th>客户满意度</th>
 		<td>
-			<select  name="cus.custSatisfy"><option value="">未指定</option>
-					<option value="5">☆☆☆☆☆</option>
-					<option value="4">☆☆☆☆</option>
-					<option value="3" selected="selected">☆☆☆</option>
-					<option value="2">☆☆</option>
-					<option value="1">☆</option></select><span class="red_star">*</span>
+			<s:select list="#{1:'☆',2:'☆☆',3:'☆☆☆',4:'☆☆☆☆',5:'☆☆☆☆☆'}" value="%{cus.custSatisfy}" name="cus.custSatisfy"></s:select>
+			<span class="red_star">*</span>
 		</td>
 		<th>客户信用度</th>
 		<td>
-			<select  name="cus.custCredit"><option value="">未指定</option>
-					<option value="5">☆☆☆☆☆</option>
-					<option value="4">☆☆☆☆</option>
-					<option value="3" selected="selected">☆☆☆</option>
-					<option value="2">☆☆</option>
-					<option value="1">☆</option></select><span class="red_star">*</span>
+			<s:select list="#{1:'☆',2:'☆☆',3:'☆☆☆',4:'☆☆☆☆',5:'☆☆☆☆☆'}" value="%{cus.custCredit}" name="cus.custCredit"></s:select>
+		<span class="red_star">*</span>
 		</td>
 	</tr>
 </table>
@@ -119,19 +104,19 @@
 	<tr>
 		<th>注册资金（万元）</th>
 		<td>
-			<input name="cus.custTurnover" value="<s:property value='cus.custTurnover'/>" name="T7" size="20" /> </td>
+			<input name="cus.custBankroll" value="<s:property value='cus.custBankroll'/>" name="T7" size="20" /> </td>
 		<th>年营业额</th>
 		<td>
-			<input name="cus.custBank" value="<s:property value='cus.custBank'/>" name="T8" size="20" />
+			<input name="cus.custTurnover" value="<s:property value='cus.custTurnover'/>" name="T8" size="20" />
 		</td>
 	</tr>	
 	<tr>
 		<th>开户银行</th>
 		<td>
-			<input name="cus.custBankAccount" value="<s:property value='cus.custBankAccount'/>" name="T9" size="20" /><span class="red_star">*</span>
+			<input name="cus.custBank" value="<s:property value='cus.custBank'/>" name="T9" size="20" /><span class="red_star">*</span>
 		</td>
 		<th>银行帐号</th>
-		<td><input name="cus.custWebsite" value="<s:property value='cus.custWebsite'/>" name="T10" size="20" /><span class="red_star">*</span></td>
+		<td><input name="cus.custBankAccount" value="<s:property value='cus.custBankAccount'/>" name="T10" size="20" /><span class="red_star">*</span></td>
 	</tr>
 	<tr>
 		<th>地税登记号</th>

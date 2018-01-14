@@ -46,17 +46,6 @@ public class SalChance implements java.io.Serializable {
 
 	/** minimal constructor */
 	
-	@Override
-	public String toString() {
-		return "SalChance [chcCreateBy=" + chcCreateBy + ", chcCreateDate="
-				+ chcCreateDate + ", chcCreateId=" + chcCreateId
-				+ ", chcCustName=" + chcCustName + ", chcDesc=" + chcDesc
-				+ ", chcDueDate=" + chcDueDate + ", chcDueId=" + chcDueId
-				+ ", chcDueTo=" + chcDueTo + ", chcId=" + chcId
-				+ ", chcLinkman=" + chcLinkman + ", chcRate=" + chcRate
-				+ ", chcSource=" + chcSource + ", chcStatus=" + chcStatus
-				+ ", chcTel=" + chcTel + ", chcTitle=" + chcTitle + "]";
-	}
 
 	/** full constructor */
 	
@@ -89,6 +78,18 @@ public class SalChance implements java.io.Serializable {
 	}
 
 	
+	@Override
+	public String toString() {
+		return "SalChance [chcCreateBy=" + chcCreateBy + ", chcCreateDate="
+				+ chcCreateDate + ", chcCreateId=" + chcCreateId
+				+ ", chcCustName=" + chcCustName + ", chcDesc=" + chcDesc
+				+ ", chcDueDate=" + chcDueDate + ", chcDueId=" + chcDueId
+				+ ", chcDueTo=" + chcDueTo + ", chcId=" + chcId
+				+ ", chcLinkman=" + chcLinkman + ", chcRate=" + chcRate
+				+ ", chcSource=" + chcSource + ", chcStatus=" + chcStatus
+				+ ", chcTel=" + chcTel + ", chcTitle=" + chcTitle + "]";
+	}
+
 	public Long getChcId() {
 		return chcId;
 	}

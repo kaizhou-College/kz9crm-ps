@@ -12,13 +12,14 @@
 <body>
 
 <div class="page_title">销售机会管理&nbsp; &gt; 新建销售机会</div>
-<form action="${basePath}html/salchance_insert" method="post">
+
+
+<form action="../salchance_insert" method="post">
 <div class="button_bar">
 	<button class="common_button" onclick="help('');">帮助</button>
 	<button class="common_button" onclick="back();">返回</button>
-	<button class="common_button" onclick="save('');">保存</button>
+	<input type="submit" value="保存" />
 </div>
-<form id="change_qq">
 <table class="query_form_table">
 	<tr>
 		<th>编号</th>
@@ -45,7 +46,7 @@
 	</tr>
 	<tr>
 		<th>机会描述</th>
-		<td colspan="3"><textarea rows="6" cols="50" name="#chance.chcDesc"></textarea><span class="red_star">*</span></td>
+		<td colspan="3"><textarea rows="6" cols="50" name="chance.chcDesc"></textarea><span class="red_star">*</span></td>
 	</tr>
 	<tr>
 		<th>创建人</th>
@@ -54,19 +55,18 @@
 		<td><input id="t1" name="chance.chcCreateDate" readonly size="20" /><span class="red_star">*</span></td>
 	</tr>
 </table>
-</form>
 <br />
 <table disabled class="query_form_table" id="table1">
 	<tr>
 		<th>指派给</th>
 		<td>
-			<select name="D1">
-				<option>请选择...</option>
-				<option>小明</option>
-				<option>旺财</option>
-				<option>球球</option>
-				<option>孙小美</option>
-				<option>周洁轮</option>
+			<select name="chance.chcDueTo">
+				<option value="未选择">请选择...</option>
+				<option value="小明">小明</option>
+				<option value="旺财">旺财</option>
+				<option value="球球">球球</option>
+				<option value="孙小美">孙小美</option>
+				<option value="周洁轮">周洁轮</option>
 			</select> <span class="red_star">*</span></td>
 		<th>指派时间</th>
 		<td>

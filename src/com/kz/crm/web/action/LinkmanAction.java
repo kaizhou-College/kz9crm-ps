@@ -43,6 +43,7 @@ public class LinkmanAction {
 		lingkman.linkmanAdd(cus, linkman);
 		return "linkmanAdd";
 	}
+	
 	public String linkmanAddTo(){
 		return "linkmanAddTo";
 	}

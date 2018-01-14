@@ -13,4 +13,8 @@ public interface PlanBiz {
 	Long countPlanList(PlanDimList pdl);
 	SalChance planList(Long id);
 	void planUpdate(SalPlan salPlan);
+	void planDelete(SalPlan salPlan);
+	void planAdd(SalChance sc,SalPlan salplan);
+	void planResultUpdate(SalPlan salPlan);
+	void planSuccessUpdate(SalChance sc);
 }

@@ -897,7 +897,6 @@ function initialise() {
 	//level表示最高级，level2子级，level3子子级，Document文件，folder文件夹。
 	//Set the initial state of the folder to "open"
 	l2ID = theMenu.addEntry(-1, "Folder", "客户关系管理系统", "mywork.htm", "客户关系管理系统");
-<<<<<<< HEAD
 	L01 = theMenu.addChild(l2ID, "Folder", "营销管理", "", "营销管理...");
 	L0101 = theMenu.addChild(L01, "Document", "销售机会管理", "salchance_query", "销售机会管理...");
 	L0102 = theMenu.addChild(L01, "Document", "客户开发计划", "plan_byPage", "客户开发计划...");
@@ -915,7 +914,6 @@ function initialise() {
 	L0304 = theMenu.addChild(L03, "Document", "服务反馈", "service_serviceFeedbackByPage", "服务反馈...");
 	L0305 = theMenu.addChild(L03, "Document", "服务归档", "service_serviceArchByPage", "服务归档...");
 	
-	
 	L04 = theMenu.addChild(l2ID, "Folder", "统计报表", "", "统计报表...");
 	L0401 = theMenu.addChild(L04, "Document", "客户贡献分析", "ordersline_query", "客户贡献分析...");
 	L0402 = theMenu.addChild(L04, "Document", "客户构成分析", "~rept/cons.html", "客户构成分析...");
@@ -923,9 +921,9 @@ function initialise() {
 	L0404 = theMenu.addChild(L04, "Document", "客户流失分析", "~rept/lost.html", "客户流失分析...");
 	
 	L05 = theMenu.addChild(l2ID, "Folder", "基础数据", "", "基础数据...");
-	L0501 = theMenu.addChild(L05, "Document", "数据字典管理", "~basd/dict.html", "数据字典管理...");
-	L0502 = theMenu.addChild(L05, "Document", "查询产品信息", "~basd/product.html", "查询产品信息...");
-	L0503 = theMenu.addChild(L05, "Document", "查询库存", "~basd/storage.html", "查询库存...");
+	L0501 = theMenu.addChild(L05, "Document", "数据字典管理", "dictAction_byPageDict", "数据字典管理...");
+	L0502 = theMenu.addChild(L05, "Document", "查询产品信息", "product_productByPage", "查询产品信息...");
+	L0503 = theMenu.addChild(L05, "Document", "查询库存", "storage_byPageTorage", "查询库存...");
         
 	theMenu.entry[l2ID].isopen = true;
 }

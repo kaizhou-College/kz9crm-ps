@@ -1,13 +1,9 @@
 function reload(){
-	alert($("#from1").serialize());
-	
-	
 	$.ajax({
 		type:"POST",
 		url:"plan_ajaxPlanDim",
 		data:$("#from1").serialize(),
 		success:function(data){
-			alert(data);
 			$("#chance_list").html(data);
 		},
 		error:function(){

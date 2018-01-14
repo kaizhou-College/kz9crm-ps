@@ -30,10 +30,9 @@ public class LinkmanDaoImpl extends HibernateDaoSupport implements LinkmanDao{
 	public void linkmanAdd(CstCustomer cus,CstLinkman lin) {
 		Session session = this.getSession();
 		CstCustomer  cut =(CstCustomer) session.get(CstCustomer.class,cus.getCustNo());
-		Set<CstLinkman> linKman = cut.getLinKman();
-		linKman.add(lin);
+		cut.getLinKman().add(lin);
 		lin.setCustomer(cut);
-		
+		session.save(lin);
 	}
 
 	public void linkmanDelete(CstCustomer cus, CstLinkman lin) {

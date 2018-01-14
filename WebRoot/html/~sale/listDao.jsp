@@ -9,17 +9,18 @@
 		<td class="list_data_text"><s:property value="#list.chcTel"/></td>
 		<td class="list_data_text"><s:property value="#list.chcCreateDate"/></td>
 		<td class="list_data_text">
-			<s:if test="#list.salChance.chcStatus<4">
+			<s:if test="#list.chcStatus<4">
 				开发中
-			</s:if><s:else>
+			</s:if>
+			<s:else>
 				已结档
 			</s:else>
 		</td>
 		<td class="list_data_op">
 			<s:if test="#list.chcStatus<4">
 				<img onclick="to('plan_planListBeing?sc.chcId=<s:property value='#list.chcId'/>');" title="制定计划" src="${basePath}/html/images/bt_plan.gif" class="op_button" />
-				<img onclick="to('~sale/dev_execute.html');" title="执行计划" src="${basePath}/html/images/bt_feedback.gif" class="op_button" />
-				<img onclick="alert('用户开发成功，已添加新客户记录。');" title="开发成功" src="${basePath}/html/images/bt_yes.gif" class="op_button" />
+				<img onclick="to('plan_planExecuteList?sc.chcId=<s:property value='#list.chcId'/>');" title="执行计划" src="${basePath}/html/images/bt_feedback.gif" class="op_button" />
+				<img onclick="to('plan_planSuccess?sc.chcId=<s:property value='#list.chcId'/>')" title="开发成功" src="${basePath}/html/images/bt_yes.gif" class="op_button" />
 			</s:if><s:else>
 				<img onclick="to('plan_planList?sc.chcId=<s:property value='#list.chcId'/>');" title="查看" src="${basePath}/html/images/bt_detail.gif" class="op_button" />
 			</s:else>
